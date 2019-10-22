@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<head>
+    <meta charset="UTF-8">
+    <title>msunui使用文档说明</title>
+<body>
+<div class="container-fuild">
+    <!-- 头部 -->
+    <div class="header">
+        <img class="logo" alt="" src="./img/logo.png">
+        <h2 class="systemName">前端框架msunui使用文档 V 1.3.1</h2>
+        <!--<div class="header-right">
+            <i class="icon iconfont icon-touxiang"></i>
+            <div class="userinfo">
+                <p>您好，XXX</p>
+                <p>机构：XXXX部</p>
+            </div>
+            <i class="icon iconfont icon-xia"></i>
+        </div>-->
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="hide-scroll">
+            <div class="menu">
+                <ul class="nav nav-vertical" id="menu">
+                    <li class="nav-item">
+                        <a class="nav-text" data-url="layout.html" data-id="shange">
+                            <i class="icon iconfont icon-buju"></i>
+                            <span>布局</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text" data-url="form.html" data-id="form">
+                            <i class="icon iconfont icon-biaodan"></i>
+                            <span>表单</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-itemed">
+                        <a class="nav-text">
+                            <i class="icon iconfont icon-zujian"></i>
+                            <span>组件</span>
+                        </a>
+                        <ul class="nav-child">
+                            <li class="nav-child-item">
+                                <a class="nav-text">表格</a>
+                                <ul class="nav-child">
+                                    <li class="nav-child-item">
+                                        <a class="nav-text" data-url="dataTable.html" data-id="data-table">数据表格</a>
+                                    </li>
+                                    <li class="nav-child-item">
+                                        <a class="nav-text" data-url="table.html" data-id="static-table">静态表格</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="layer.html" data-id="layer">弹层</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="navigation.html" data-id="navigation">导航栏</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="tab.html" data-id="tab">标签页</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="page.html" data-id="page">分页</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="tree.html" data-id="tree">树组件</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="date.html" data-id="date">日期</a>
+                            </li>
+                            <!--<li class="nav-child-item">
+                                <a class="nav-text" data-url="editor.html" data-id="editor">富文本编辑器</a>
+                            </li>-->
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="button.html" data-id="button">按钮</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="progress.html" data-id="progress">进度条</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="steps.html" data-id="steps">步骤条</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="timerShaft.html" data-id="timerShaft">时间轴</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="collapse.html" data-id="collapse">折叠面板</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="uploader.html" data-id="uploader">上传组件(不支持IE8/9)</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="dropdown.html" data-id="dropdown">下拉菜单</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="tooltip.html" data-id="tooltip">提示组件</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text">
+                            <i class="icon iconfont icon-qita"></i>
+                            <span>其他</span>
+                        </a>
+                        <ul class="nav-child">
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="util.html" data-id="util">工具类</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text" data-url="regExpFactory.html" data-id="regExpFactory">正则库</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text" data-url="updateInfo.html" data-id="updateInfo">
+                            <i class="icon iconfont icon-shengjishuoming"></i>
+                            <span>升级说明</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text" data-url="singlepage.html" data-id="singlepage">单屏页(老框架迁移)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text" data-url="expand.html" data-id="expand">如何拓展现有框架？</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text" data-url="fonts/demo_index.html" data-id="icon">内置图标库</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tab" id="myTab"></div>
+            <div class="footer">
+                Copyright © <script type="text/javascript">
+                document.write(new Date().getFullYear())
+            </script> 北京众阳软件
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

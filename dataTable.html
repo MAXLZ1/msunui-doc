@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .table p{
+            margin: 0;
+            line-height: 22px;
+        }
+        .blue{
+            color:#3896fe;
+        }
+        .btn{
+            margin:5px;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1>数据表格 Table</h1>
+        <blockquote class="msunui-quote-bg">
+            数据表格通过JQuery的ajax获取数据。elem所指DOM需添加.table-container
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>开放接口</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数</th>
+                    <th>用途</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>init()</td>
+                    <td>-</td>
+                    <td>table初始化,一般不需要。new的过程中已经初始化</td>
+                </tr>
+                <tr>
+                    <td>reload()</td>
+                    <td>-</td>
+                    <td>table重载</td>
+                </tr>
+                <tr>
+                    <td>on(eventType,callback)</td>
+                    <td>
+                        <p>eventType:事件类型，参考<a href="#eventType">事件类型</a></p>
+                        <p>callback:回调函数</p>
+                    </td>
+                    <td>table绑定事件</td>
+                </tr>
+                <tr>
+                    <td>layout()</td>
+                    <td>-</td>
+                    <td>table自适应</td>
+                </tr>
+                </tbody>
+            </table>
+            <p><a class="blue">table.cacheData</a>可获取当前实例的数据；<a class="blue">table.checkedData</a>可获取当前被选中的数据</p>
+        </div>
+        <fieldset class="msunui-fieldset" id="constructor">
+            <legend>构造器参数说明(new Table(obj))</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th style="width: 200px">参数</th>
+                    <th style="width: 200px">类型</th>
+                    <th>参数值</th>
+                    <th style="width: 45%">备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>elem</td>
+                    <td>String/JQueryDOM</td>
+                    <td>-</td>
+                    <td>该参数可使用选择器或jquery对象，建议使用ID选择器</td>
+                </tr>
+                <tr>
+                    <td>tdhide</td>
+                    <td>Boolean</td>
+                    <td>默认为true</td>
+                    <td>设置单元格是否溢出隐藏(固定列时建议设置为true)</td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>设置数据来源，该url返回数据格式为
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title" >
+                                <span class="msunui-text">code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                {
+                                    status:200,
+                                    count:200,
+                                    data:[
+                                        {},{}
+                                    ]
+                                }
+                            </div>
+                        </code>
+                        参考<a href="#response">response</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>String</td>
+                    <td>post/get,默认为post</td>
+                    <td>ajax请求类型</td>
+                </tr>
+                <tr>
+                    <td>params</td>
+                    <td>Object</td>
+                    <td>-</td>
+                    <td>ajax请求参数</td>
+                </tr>
+                <tr>
+                    <td>dataType</td>
+                    <td>String</td>
+                    <td>默认json</td>
+                    <td>ajax数据返回类型</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Array</td>
+                    <td>-</td>
+                    <td>数据集，若不通过url形式获取数据，可通过设置数据集</td>
+                </tr>
+                <tr>
+                    <td>bgsort</td>
+                    <td>Boolean</td>
+                    <td>true/false,true表示开启后台排序，false表示前台排序，默认为false</td>
+                    <td>是否开启后台排序;当开启后台排序时，自动添加sort及property属性，其中sort属性可能值为["asc","desc"],property为排序属性</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Number/String</td>
+                    <td>当为String类型时，值只能为"full-".例如"full-300":表示当前表格高度为当前window高度减去300</td>
+                    <td>表格高度(包含分页高度)，不设置该值表格高度自适应，设置该值后该高度相当于表格的最大高度，超出显示滚动条</td>
+                </tr>
+                <tr>
+                    <td>page</td>
+                    <td>Boolean</td>
+                    <td>true/false，默认为false</td>
+                    <td>是否开启分页</td>
+                </tr>
+                <!--<tr>
+                    <td>saveSelect</td>
+                    <td>Boolean</td>
+                    <td>true/false,默认false</td>
+                    <td>该属性决定翻页之后是否保留翻页之前被选中的数据</td>
+                </tr>
+                <tr>
+                    <td>uniqueField</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>若表格开启checkbox，则必须配置改项,该属性的作用为将作为被选中的数据的唯一标识，用来区分被选中数据中是否已存在</td>
+                </tr>-->
+                <tr>
+                    <td>limit</td>
+                    <td>Number</td>
+                    <td>默认为10，该值的取值取决于limits的设置</td>
+                    <td>分页每页显示条数</td>
+                </tr>
+                <tr>
+                    <td>limits</td>
+                    <td>Array</td>
+                    <td>默认为[10,20,50,100,150,200]</td>
+                    <td>控制每页显示条数</td>
+                </tr>
+                <tr>
+                    <td id="response">response</td>
+                    <td>Object</td>
+                    <td>-</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title" >
+                                <span class="msunui-text">code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                {
+                                    statusName:"status",    // 数据状态子段名
+                                    statusCode:200,         // ajax返回成功状态码
+                                    countName:"count",      // 数据总数字段名
+                                    dataName:"data"         // 数据字段名
+                                }
+                            </div>
+                        </code>
+                        定义返回值属性名，可不做修改</td>
+                </tr>
+                <tr>
+                    <td>cols</td>
+                    <td>Object</td>
+                    <td>-</td>
+                    <td>配置显示字段。参考<a href="#cols">cols字段配置</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>cols字段配置</legend>
+        </fieldset>
+        <div class="row" id="cols">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th style="width: 200px">参数</th>
+                    <th style="width: 200px">参数类型</th>
+                    <th>参数值</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>field</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>字段属性名，表明该列显示哪个字段</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>表头名</td>
+                </tr>
+                <tr>
+                    <td>move</td>
+                    <td>Boolean</td>
+                    <td>true/false,默认false</td>
+                    <td>拖动该字段所在列是否可进行行移动</td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>Number</td>
+                    <td>-</td>
+                    <td>控制单元格最小宽度</td>
+                </tr>
+                <tr>
+                    <td>align</td>
+                    <td>String</td>
+                    <td>
+                        <p>1.center,居中，默认值</p>
+                        <p>2.left，左对齐</p>
+                        <p>3.right，右对齐</p>
+                    </td>
+                    <td>控制该列文字对齐方式</td>
+                </tr>
+                <tr>
+                    <td>sort</td>
+                    <td>Boolean</td>
+                    <td>true/false,默认false</td>
+                    <td>该字段是否可排序</td>
+                </tr>
+                <tr>
+                    <td>fixed</td>
+                    <td>String</td>
+                    <td>
+                        <p>1.left,左侧固定列</p>
+                        <p>2.right，右侧固定列</p>
+                    </td>
+                    <td>固定列
+                        <p>固定列时最好将对象放置cols数组的始末</p>
+                        <p>如cols:[{fixed:"left"}...{fixed:"right"}]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>Boolean</td>
+                    <td>true/false,默认false</td>
+                    <td>该字段是否隐藏</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>String</td>
+                    <td>
+                        <p>1.normal:正常类型，默认值</p>
+                        <p>2.checkbox:复选框</p>
+                        <p>3.number:数字类型</p>
+                        <p>4.operate:操作类(查看、编辑、修改)</p>
+                    </td>
+                    <td>列类型</td>
+                </tr>
+                <tr>
+                    <td>exclude</td>
+                    <td>Array</td>
+                    <td>
+                        type="operate"时有效,默认值["info","edit","delete"]
+                        <p>info:查看</p>
+                        <p>edit:编辑</p>
+                        <p>delete:删除</p>
+                    </td>
+                    <td>控制操作列显示操作</td>
+                </tr>
+                <tr>
+                    <td>edit</td>
+                    <td>String</td>
+                    <td>text:默认值</td>
+                    <td>单元格编辑</td>
+                </tr>
+                <tr>
+                    <td>callback</td>
+                    <td>Function</td>
+                    <td>-</td>
+                    <td>
+                        回调函数，可控制该列的显示,例
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title" >
+                                <span class="msunui-text">code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                // 设置该列回调函数，其中data包含了改行的所有数据;tr为当前行DOM;leftTr与rightTr带表固定列的当前行
+                                function(data,tr,leftTr,rightTr){
+                                    if(data.age == 17){
+                                        $(tr).css({
+                                            "background-color":"#333333",
+                                            "color":"#ffffff"
+                                        });
+                                        $(leftTr).css({
+                                            "background-color":"#333333",
+                                            "color":"#ffffff"
+                                        });
+                                        $(rightTr).css({
+                                            "background-color":"#333333",
+                                            "color":"#ffffff"
+                                        });
+                                    }
+                                }
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>数据表格相关事件</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left" id="eventType">
+                <thead>
+                <tr>
+                    <th>事件名</th>
+                    <th>事件说明</th>
+                    <th>回调说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>row</td>
+                    <td>行单击事件：单击行时触发</td>
+                    <td>
+                        callback(obj);
+                        <p>obj.data:当前行数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>checkbox</td>
+                    <td>多选框事件：选择多选框时触发</td>
+                    <td>
+                        callback(obj);
+                        <p>obj:当前行数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>sort</td>
+                    <td>排序事件：点击排序触发</td>
+                    <td>
+                        callback(obj);
+                        <p>obj.field:排序字段</p>
+                        <p>obj.type:排序类型</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>move</td>
+                    <td>行移动事件：行移动时触发</td>
+                    <td>
+                        callback(obj);
+                        <p>obj:被移动行的数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>operate</td>
+                    <td>操作事件：列类型为operate的列中操作被点击触发</td>
+                    <td>
+                        callback(obj);
+                        <p>obj.type:操作类型</p>
+                        <p>obj.data:操作当前行的数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>reload</td>
+                    <td>表格重载完成之后触发（执行relaod触发）</td>
+                    <td>
+                        callback(data);
+                        <p>data:表格数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>loaded</td>
+                    <td>表格完成渲染之后触发</td>
+                    <td>
+                        callback(data);
+                        <p>data:表格数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>edit</td>
+                    <td>单元格编辑事件</td>
+                    <td>
+                        callback(data,tr);
+                        <p>data:被编辑数据</p>
+                        <p>tr:当前行Dom</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">数据表格事件示例</span>
+                </div>
+                <div class="msunui-code-content">
+                    var table = new Table({...});
+                    table.on("row",function(obj){
+                        console.log(this); // 当前trDom
+                        console.log(obj.data); // 当前行的数据
+                    });
+                    table.on("checkbox",function(obj){
+                        console.log(this); // 当前行DOM
+                        console.log(obj); // 当前行数据
+                        console.log(table.checkedData); // 当前表格实例被选中数据
+                        console.log(table.cacheData); // 当前表格实例数据
+                    });
+                    table.on("sort",function(obj){
+                        console.log(this); //
+                        console.log(obj.field); // 排序字段
+                        console.log(obj.type); // 排序类型
+                    });
+                    table.on("move",function(obj){
+                        console.log(this); // 被托动行DOM
+                        console.log(obj); //  被移动行的数据
+                    });
+                    table.on("operate",function(obj){
+                        console.log(obj.type); // 操作类型
+                        console.log(obj.data); // 操作当前行数据
+                    });
+                </div>
+            </code>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>使用示例</legend>
+        </fieldset>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">数据表格使用示例</span>
+            </div>
+            <div class="msunui-code-content">
+                <div class="table-container" id="table"></div>
+                <script type="text/javascript">
+                    // 数据形式
+                    var table = new Table({
+                        elem:"#table",
+                        page:true,
+                        height:300,
+                        data:[
+                            {id:37,name:"小明",age:12,school:"XX高中",address:"山东省",desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字"},
+                            {id:75,name:"小红",age:23,school:"XX大学",address:"北京市",desc:"XXX2"},
+                            {id:18,name:"小明",age:15,school:"XX大学",address:"山西省",desc:"XXX3"},
+                            {id:25,name:"小明",age:18,school:"XX高中",address:"山西省",desc:"XXX4"},
+                            {id:1,name:"啊明",age:19,school:"XX高中",address:"山西省",desc:"XXX5"},
+                            {id:77,name:"小明",age:11,school:"XX小学",address:"山西省",desc:"XXX6"},
+                            {id:58,name:"小明",age:13,school:"XX初中",address:"山西省dsadasd",desc:"XXX7"},
+                            {id:12,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"},
+                            {id:43,name:"小明",age:23,school:"XX高中",address:"山西省",desc:"XXX8"},
+                            {id:54,name:"小明",age:25,school:"XX高中",address:"山西省",desc:"XXX8"},
+                            {id:13,name:"小明",age:15,school:"XX高中",address:"山西省",desc:"XXX8"},
+                            {id:56,name:"小明",age:2,school:"XX高中",address:"山西省",desc:"XXX8"},
+                            {id:34,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"}
+                        ],
+                        cols:[
+                            {type:"checkbox",fixed:"left"},
+                            {field:"id",title:"ID",sort:true,},
+                            {field:"name",title:"姓名",move:true},
+                            {field:"school",title:"学校",width:150,hide:true},
+                            {field:"age",title:"年龄",sort:true},
+                            {field:"address",title:"地址",width:300,sort:true,edit:"text"},
+                            {field:"desc",title:"描述",width:200,callback:function(data){
+                                $(this).append("<a class='btn-sm btn-rounded btn-success'>当前行数据</a>");
+                                $(this).find("a").on("click",function(e){
+                                    e.stopPropagation();
+                                    console.log(data)
+                                })
+                            }},
+                            {type:"operate",width:200,fixed:"right"}
+                        ]
+                    });
+                    // url形式
+                    var table = new Table({
+                        elem:"#table",
+                        page:true,
+                        height:"full-120",
+                        url:"${ctx}/empArchivesAction.do?operAtt=getEmp",
+                        type:"post",
+                        limit:20,
+                        cols:[
+                            {field:"loginId",title:"员工编号",width:100,sort:true},
+                            {title:"技术档案",width:100},
+                            {field:"eaname",title:"员工姓名",width:100,sort:true},
+                            {field:"underlingNum",title:"下属人数",sort:true,width:150},
+                            {field:"eadepttypename",title:"科室类型",sort:true,width:150},
+                            {field:"eabigdeptname",title:"大科室",sort:true,width:150},
+                            {field:"eadepartmentname",title:"科室",sort:true,width:150},
+                            {field:"eadateruzhi",title:"入院日期",sort:true,width:150}
+                        ]
+                    });
+                </script>
+            </div>
+        </code>
+        <div class="row">
+            <a class="btn btn-success btn-rounded" id="getSelect">获取被选中数据</a>
+            <div class="table-container" id="test"></div>
+        </div>
+    </div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script type="text/javascript">
+    var table = new Table({
+        elem:"#test",
+        page:true,
+        height:300,
+        //bgsort: true,
+        // url:'http://10.68.137.76:8888/msunui-api/table/json',
+        data:[
+            {id:37,name:"小明",age:12,school:"XX高中",address:"山东省",desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字"},
+            {id:75,name:"小红",age:23,school:"XX大学",address:"北京市",desc:"XXX2"},
+            {id:18,name:"小明",age:15,school:"XX大学",address:"山西省",desc:"XXX3"},
+            {id:25,name:"小明",age:18,school:"XX高中",address:"山西省",desc:"XXX4"},
+            {id:1,name:"啊明",age:19,school:"XX高中",address:"山西省",desc:"XXX5"},
+            {id:77,name:"小明",age:11,school:"XX小学",address:"山西省",desc:"XXX6"},
+            {id:58,name:"小明",age:13,school:"XX初中",address:"山西省dsadasd",desc:"XXX7"},
+            {id:12,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"},
+            {id:43,name:"小明",age:23,school:"XX高中",address:"山西省",desc:"XXX8"},
+            {id:54,name:"小明",age:25,school:"XX高中",address:"山西省",desc:"XXX8"},
+            {id:13,name:"小明",age:15,school:"XX高中",address:"山西省",desc:"XXX8"},
+            {id:56,name:"小明",age:2,school:"XX高中",address:"山西省",desc:"XXX8"},
+            {id:34,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"}
+        ],
+        cols:[
+            {type:"checkbox",fixed:"left"},
+            {field:"id",title:"ID",sort:true,},
+            {field:"name",title:"姓名",move:true, edit: 'text'},
+            {field:"school",title:"学校",width:150,hide:true,edit: 'text'},
+            {field:"age",title:"年龄",sort:true,edit: 'text'},
+            {field:"address",title:"地址",width:300,sort:true,edit:"text"},
+            {field:"desc",title:"描述",width:200,callback:function(data){
+                $(this).append("<a class='btn-sm btn-rounded btn-success'>当前行数据</a>");
+                $(this).find("a").on("click",function(e){
+                    e.stopPropagation();
+                    console.log(data)
+                })
+            }},
+            {type:"operate",width:200,fixed:"right"}
+        ]
+    });
+    table.on('edit',function (data) {
+        console.log('edit');
+        console.log(data);
+    });
+    table.on("row",function(obj){
+        console.log(this); // 当前trDom
+        console.log(obj.data); // 当前行的数据
+    });
+    table.on("checkbox",function(obj){
+        console.log(this); // 当前行DOM
+        console.log(obj); // 当前行数据
+        console.log(table.checkedData); // 当前表格实例被选中数据
+        console.log(table.cacheData); // 当前表格实例数据
+    });
+    table.on("sort",function(obj){
+        console.log(this); //
+        console.log(obj.field); // 排序字段
+        console.log(obj.type); // 排序类型
+    });
+    table.on("move",function(obj){
+        console.log(this); // 被托动行DOM
+        console.log(obj); //  被移动行的数据
+    });
+    table.on("operate",function(obj){
+        console.log(obj.type); // 操作类型
+        console.log(obj.data); // 操作当前行数据
+    });
+    var layer = new Layer();
+    $("#getSelect").on("click",function () {
+        layer.alert({
+            width:500,
+            height:400,
+            title:'table被选中数据',
+            content:JSON.stringify(table.checkedData)
+        });
+    });
+</script>
+</body>
+</html>

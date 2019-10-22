@@ -1,0 +1,161 @@
+html,body{
+    height:100%;
+    width:100%;
+    overflow: hidden;
+}
+/* 左侧部分 */
+.leftMenu{
+    width:220px;
+    height:100%;
+    background-color: #2F4056;
+    position:relative;
+    display: inline-block;
+}
+.leftMenu .title{
+    height:50px;
+    width: 100%;
+    color: #ffffff;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight:600;
+    text-align: center;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0;
+    z-index: 9;
+}
+.leftMenu .title .logo{
+    height:100%;
+}
+.leftMenu .hideScroll{
+	position:absolute;
+	top:52px;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.leftMenu .navMenu{
+    height: 100%;
+    width: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.leftMenu .navMenu .loading{
+	padding:15px;
+}
+.leftMenu .navMenu .loading img{
+	width:25px;
+	height:auto;
+	display:inline-block;
+	vertical-align:middle;
+}
+.leftMenu .navMenu .loading span{
+	margin-left:6px;
+	display:inline-block;
+	vertical-align:middle;
+	color:#ffffff;
+}
+/* 右侧部分 */
+.rightContent{
+    position: absolute;
+    display: inline-block;
+    left: 220px;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color: #f0f0f0;
+}
+.rightContent .header{
+    height:50px;
+    line-height:50px;
+    background-color:#ffffff;
+    width: 100%;
+    font-size:0;
+    border-bottom:1px solid #e6e6e6;
+}
+.rightContent .header .flexIcon{
+    margin-left: 15px;
+    height:50px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.rightContent .header .flexIcon .iconfont{
+    font-size:22px;
+}
+.rightContent .header .logo{
+    margin-left: 15px;
+    height:40px;
+    width:40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.rightContent .header .systemName{
+    margin-left: 15px;
+    font-size: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.rightContent .header .nav{
+    /* display: inline-block; */
+    float:right;
+    vertical-align: middle;
+    background-color: #ffffff;
+    height:48px;
+    line-height: 48px;
+}
+.rightContent .header .nav .slide-block{
+    height:48px;
+}
+/* 修改三角形颜色 */
+.rightContent .header .nav .nav-text .nav-more{
+    border-top-color: #000000;
+}
+.rightContent .header .nav .nav-item.nav-hover{
+    color: #ffffff;
+}
+.rightContent .header .nav .nav-item{
+    color:#000000;
+}
+.rightContent .header .right{
+    margin-right:10px;
+    float: right;
+    font-size:14px;
+}
+.rightContent .header .right .right-item{
+    float: left;
+    margin-left: 10px;
+    height:50px;
+}
+.rightContent .header .right .right-item .modifyPwd{
+	cursor: pointer;
+}
+.rightContent .header .right .right-item .icon-tuichu{
+    font-size:25px;
+    cursor: pointer;
+}
+.rightContent .content{
+    position: absolute;
+    top:60px;
+    left:0;
+    right:0;
+    bottom:20px;
+}
+.rightContent .content .tab{
+    height:100%;
+    width:100%;
+}
+/* 版权 */
+.rightContent .footer{
+    background: #d2d2d2;
+    position: absolute;
+    text-align: center;
+    height:20px;
+    line-height: 20px;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.rightContent .footer p{
+    font-size:12px;
+}

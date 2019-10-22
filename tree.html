@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+    <style>
+        .table p{
+            margin: 0;
+            line-height: 22px;
+        }
+        .blue{
+            color:#3896fe;
+        }
+        #demo1{
+            margin-bottom:20px;
+        }
+        hr{
+            margin-bottom: 15px;
+        }
+    </style>
+<body>
+<div class="container doc">
+    <h1>树 Tree</h1>
+    <fieldset class="msunui-fieldset">
+        <legend>使用示例</legend>
+    </fieldset>
+    <div class="row">
+        <div class="tab-nav-terse">
+            <div class="tab-title">
+                <ul>
+                    <li class="active" data-id="code">效果</li>
+                    <li data-id="effect">代码</li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-item" data-target="code">
+                    <div id="demo1"></div>
+                    <hr>
+                    <button class="btn btn-success btn-rounded" id="hasParents">获取被选中数据(包含父节点)</button>
+                    <button class="btn btn-success btn-rounded" id="noParents">获取被选中数据(不包含父节点)</button>
+                    <div id="demo2"></div>
+                </div>
+                <div class="tab-item" data-target="effect">
+                    <code class="msunui-code" data-escape="true">
+                        <div class="msunui-code-title">
+                            <span class="msunui-text">tree代码示例</span>
+                        </div>
+                        <div class="msunui-code-content">
+                            <div id="tree1"></div>
+                            <div id="tree2"></div>
+                            <script>
+                                var data1=[
+                                    {
+                                        id: 1,
+                                        name: "医疗",
+                                        open:true,
+                                        children: [
+                                            {
+                                                id: 2,
+                                                name: "外科",
+                                                open:true,
+                                                children: [
+                                                    {
+                                                        id: 3,
+                                                        name: "骨外科一病区"
+                                                    },
+                                                    {
+                                                        id: 4,
+                                                        name: "骨外科二病区",
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                id: 22,
+                                                name: "内科",
+                                                open:true,
+                                                children: [
+                                                    {
+                                                        id: 23,
+                                                        name: "心内科一病区"
+                                                    },
+                                                    {
+                                                        id: 24,
+                                                        name: "消化内科",
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        id: 5,
+                                        name: "护理",
+                                        children: [
+                                            {
+                                                id: 6,
+                                                name: "外科系统"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        id: 10,
+                                        name: "医技",
+                                        children: [
+                                            {
+                                                id: 11,
+                                                name: "医学影像"
+                                            },
+                                            {
+                                                id: 12,
+                                                name: "超声科",
+                                                children: [
+                                                    {
+                                                        id: 13,
+                                                        name: "超声介入科"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ];
+                                var data2 = [
+                                    {
+                                        id: 1,
+                                        name: "医疗",
+                                        open:true,
+                                        select:true,
+                                        children: [
+                                            {
+                                                id: 2,
+                                                name: "外科",
+                                                open:true,
+                                                children: [
+                                                    {
+                                                        id: 3,
+                                                        name: "骨外科一病区"
+                                                    },
+                                                    {
+                                                        id: 4,
+                                                        name: "骨外科二病区",
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                id: 22,
+                                                name: "内科",
+                                                open:true,
+                                                children: [
+                                                    {
+                                                        id: 23,
+                                                        select:true,
+                                                        name: "心内科一病区"
+                                                    },
+                                                    {
+                                                        id: 24,
+                                                        name: "消化内科",
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        id: 5,
+                                        name: "护理",
+                                        children: [
+                                            {
+                                                id: 6,
+                                                name: "外科系统"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        id: 10,
+                                        name: "医技",
+                                        children: [
+                                            {
+                                                id: 11,
+                                                name: "医学影像"
+                                            },
+                                            {
+                                                id: 12,
+                                                name: "超声科",
+                                                children: [
+                                                    {
+                                                        id: 13,
+                                                        select:true,
+                                                        name: "超声介入科"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ];
+                                new Tree({
+                                    elem:"#tree1",
+                                    data:data1
+                                });
+                                new Tree({
+                                    elem:"#tree2",
+                                    data:data2,
+                                    checkbox:true
+                                });
+                            </script>
+                        </div>
+                    </code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <fieldset class="msunui-fieldset" id="constructor">
+        <legend>构造器参数说明(new Table(obj))</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>参数名</th>
+                <th>参数类型</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>elem</td>
+                <td>String/JQueryDom</td>
+                <td>配置容器Dom</td>
+            </tr>
+            <tr>
+                <td>checkbox</td>
+                <td>Boolean,默认人为false</td>
+                <td>是否开启多选框</td>
+            </tr>
+            <tr>
+                <td>data</td>
+                <td>Array</td>
+                <td>树数据，data结构参考<a class="blue" href="#dataStruct">data结构</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset" id="dataStruct">
+        <legend>data结构</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>属性名</th>
+                <th>属性类型</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>树节点名</td>
+            </tr>
+            <tr>
+                <td>select</td>
+                <td>Boolean,默认人为false</td>
+                <td>是否被选中</td>
+            </tr>
+            <tr>
+                <td>open</td>
+                <td>Boolean,默认为false</td>
+                <td>是否打开</td>
+            </tr>
+            <tr>
+                <td>children</td>
+                <td>Array</td>
+                <td>子节点相关数据</td>
+            </tr>
+            <tr>
+                <td>leaf</td>
+                <td>Boolean</td>
+                <td>是否为子节点，若不显式设置，则根据children属性判断是否为叶子节点</td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>Object</td>
+                <td>其他属性:一些自定义的属性</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>开放接口</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>方法名</th>
+                <th>参数</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>init()</td>
+                <td>-</td>
+                <td>初始化，一般不需要使用。</td>
+            </tr>
+            <tr>
+                <td>on(eventType,callback)</td>
+                <td>
+                    <p>eventType:事件类型，参考<a class="blue" href="#eventType">事件类型</a></p>
+                    <p>callback:回调函数</p>
+                </td>
+                <td>树节点绑定事件</td>
+            </tr>
+            <tr>
+                <td>getSelectData(hasParents)</td>
+                <td>hasParents:是否包含父节点，不传则为false</td>
+                <td>获取树组件被选中元素</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset" id="eventType">
+        <legend>事件类型</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>事件名</th>
+                <th>事件说明</th>
+                <th>回调说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>click</td>
+                <td>节点点击事件</td>
+                <td>callback(data)
+                    <p>data:被点击节点的数据</p>
+                </td>
+            </tr>
+            <tr>
+                <td>checkbox</td>
+                <td>节点选择事件</td>
+                <td>
+                    callback(data)
+                    <p>data:被选择节点数据</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script>
+    var data1=[
+        {
+            id: 1,
+            name: "医疗",
+            open:true,
+            children: [
+                {
+                    id: 2,
+                    name: "外科",
+                    open:true,
+                    children: [
+                        {
+                            id: 3,
+                            name: "骨外科一病区"
+                        },
+                        {
+                            id: 4,
+                            name: "骨外科二病区",
+                        }
+                    ]
+                },
+                {
+                    id: 22,
+                    name: "内科",
+                    open:true,
+                    children: [
+                        {
+                            id: 23,
+                            name: "心内科一病区"
+                        },
+                        {
+                            id: 24,
+                            name: "消化内科",
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 5,
+            name: "护理",
+            children: [
+                {
+                    id: 6,
+                    name: "外科系统"
+                }
+            ]
+        },
+        {
+            id: 10,
+            name: "医技",
+            children: [
+                {
+                    id: 11,
+                    name: "医学影像"
+                },
+                {
+                    id: 12,
+                    name: "超声科",
+                    children: [
+                        {
+                            id: 13,
+                            name: "超声介入科"
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+    var data2 = [
+        {
+            id: 1,
+            name: "医疗",
+            open:true,
+            children: [
+                {
+                    id: 2,
+                    name: "外科",
+                    open:true,
+                    children: [
+                        {
+                            id: 3,
+                            name: "骨外科一病区"
+                        },
+                        {
+                            id: 4,
+                            name: "骨外科二病区",
+                        }
+                    ]
+                },
+                {
+                    id: 22,
+                    name: "内科",
+                    open:true,
+                    children: [
+                        {
+                            id: 23,
+                            select:true,
+                            name: "心内科一病区"
+                        },
+                        {
+                            id: 24,
+                            name: "消化内科",
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 5,
+            name: "护理",
+            children: [
+                {
+                    id: 6,
+                    name: "外科系统"
+                }
+            ]
+        },
+        {
+            id: 10,
+            name: "医技",
+            children: [
+                {
+                    id: 11,
+                    name: "医学影像"
+                },
+                {
+                    id: 12,
+                    name: "超声科",
+                    children: [
+                        {
+                            id: 13,
+                            select:true,
+                            name: "超声介入科"
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+    var tree1 = new Tree({
+       elem:"#demo1",
+       data:data1
+    });
+    var tree2 = new Tree({
+       elem:"#demo2",
+       data:data2,
+       checkbox:true
+    });
+    tree2.on('checkbox',function (data) {
+        console.log(data)
+    })
+    var layer = new Layer();
+    $("#noParents").on("click",function () {
+        layer.alert({
+            width:400,
+            height:250,
+            title:'tree被选中数据(不包含父节点)',
+            content:JSON.stringify(tree2.getSelectData())
+        });
+    });
+    $("#hasParents").on("click",function () {
+        layer.alert({
+            width:400,
+            height:250,
+            title:'tree被选中数据(包含父节点)',
+            content:JSON.stringify(tree2.getSelectData(true))
+        });
+    });
+</script>
+</body>
+</html>

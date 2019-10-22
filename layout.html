@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栅格系统</title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style >
+        .grid-demo{
+            text-align: center;
+            padding:10px;
+            line-height:30px;
+            color: #ffffff;
+        }
+        .row{
+            margin-bottom:5px;
+        }
+        .row div:first-child .grid-demo{
+            background: #C3DFFF;
+        }
+        .row div:first-child+div .grid-demo{
+            background: #88C0FE ;
+        }
+        .row div:first-child+div+div .grid-demo{
+            background: #4CA0FE;
+        }
+        .nest .col-lg-4{
+            background: #C3DFFF;
+        }
+        .nest .col-lg-8{
+            background: #C3DFFF;
+        }
+        .nest .col-lg-12 .col-lg-12{
+            background: #C3DFFF;
+        }
+        .table{
+            width:100%;
+        }
+        .table thead tr th,.table tbody tr td{
+            width:20%;
+        }
+    </style>
+<body>
+<div class="container doc">
+    <h1>布局 Layout</h1>
+    <blockquote class="msunui-quote-bg">
+        布局容器一般作用在根元素。
+    </blockquote>
+    <fieldset class="msunui-fieldset">
+        <legend>布局容器</legend>
+    </fieldset>
+    <table class="table table-ordinary">
+        <thead>
+        <tr>
+            <th>类名</th>
+            <th>宽度</th>
+            <th>备注</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>.container</td>
+            <td>20px的padding</td>
+            <td>一般用作根元素</td>
+        </tr>
+        <tr>
+            <td>.container-fuild</td>
+            <td>100%</td>
+            <td>一般用作根元素</td>
+        </tr>
+        <tr>
+            <td>.row</td>
+            <td>100%</td>
+            <td>一般在.container或.container-fuild</td>
+        </tr>
+        </tbody>
+    </table>
+    <fieldset class="msunui-fieldset">
+        <legend>代码实例</legend>
+    </fieldset>
+    <code class="msunui-code" data-escape="true">
+        <div class="msunui-code-title">
+            <span class="msunui-text">布局容器代码实例</span>
+        </div>
+        <div class="msunui-code-content">
+            <div class="container">
+                <div class="row">
+                    ...
+                </div>
+            </div>
+            <div class="container-fuild">
+                <div class="row">
+                    ...
+                </div>
+            </div>
+        </div>
+    </code>
+    <fieldset class="msunui-fieldset">
+        <legend>栅格系统</legend>
+    </fieldset>
+    <blockquote class="msunui-quote-bg">
+        栅格系统主要用于响应式布局，最低兼容IE8标准文档模式，IE8下使用js进行兼容。
+    </blockquote>
+    <p>1.栅格说明</p>
+    <div class="row">
+        <table class="table table-ordinary">
+            <thead>
+            <tr>
+                <th></th>
+                <th>超小屏幕（<768px）</th>
+                <th>小屏幕（≤991px）</th>
+                <th>中等屏幕（≤1199px）</th>
+                <th>大型屏幕（≥1200px）</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>标记</td>
+                <td>xs</td>
+                <td>sm</td>
+                <td>md</td>
+                <td>lg</td>
+            </tr>
+            <tr>
+                <td>对应类(1-12列)</td>
+                <td>col-xs-*</td>
+                <td>col-sm-*</td>
+                <td>col-md-*</td>
+                <td>col-lg-*</td>
+            </tr>
+            <tr>
+                <td>偏移类(1-12列)</td>
+                <td>col-xs-offset-*</td>
+                <td>col-sm-offset-*</td>
+                <td>col-md-offset-*</td>
+                <td>col-lg-offset-*</td>
+            </tr>
+            <tr>
+                <td>总列数</td>
+                <td colspan="4">12</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>2.代码实例</p>
+    <div class="row">
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-code-text">栅格系统代码示例</span>
+            </div>
+            <div class="msunui-code-content">
+                <div class="row">
+                    <div class="col-lg-4 col-md-1">
+                        <div>4/12</div>
+                    </div>
+                    <div class="col-lg-4 col-md-3">
+                        <div>4/12</div>
+                    </div>
+                    <div class="col-lg-4 col-md-8">
+                        <div>4/12</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div>2/12</div>
+                    </div>
+                    <div class="col-lg-2 col-lg-offset-2">
+                        <div>2/12</div>
+                    </div>
+                    <div class="col-lg-2 col-lg-offset-2">
+                        <div>2/12</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-4"><div>4/12(内部)</div></div>
+                        <div class="col-lg-8"><div>8/12(内部)</div></div>
+                        <div class="col-lg-12"><div>12/12(内部)</div></div>
+                    </div>
+                </div>
+            </div>
+        </code>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-1">
+            <div class="grid-demo">
+                4/12
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-3">
+            <div class="grid-demo">
+                4/12
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-8">
+            <div class="grid-demo">
+                4/12
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="grid-demo">
+                2/12
+            </div>
+        </div>
+        <div class="col-lg-2 col-lg-offset-2">
+            <div class="grid-demo">
+                2/12
+            </div>
+        </div>
+        <div class="col-lg-2 col-lg-offset-2">
+            <div class="grid-demo">
+                2/12
+            </div>
+        </div>
+    </div>
+    <div class="row nest">
+        <div class="col-lg-12">
+            <div class="col-lg-4"><div class="grid-demo">4/12(内部)</div></div>
+            <div class="col-lg-8"><div class="grid-demo">8/12(内部)</div></div>
+            <div class="col-lg-12"><div class="grid-demo">12/12(内部)</div></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>steps</title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+<body>
+<div class="container doc">
+    <h1>步骤条 Steps</h1>
+    <blockquote class="msunui-quote-bg">
+        显示事件步骤信息。
+    </blockquote>
+    <fieldset class="msunui-fieldset">
+        <legend>使用示例</legend>
+    </fieldset>
+    <div class="row">
+        <div id="blocksteps"></div>
+        <div id="linesteps-h"></div>
+        <div id="linesteps-v"></div>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">steps code</span>
+            </div>
+            <div class="msunui-code-content">
+                <div id="steps1"></div>
+                <div id="steps2"></div>
+                <div id="steps3"></div>
+                <script>
+                    var data = [
+                        {title:"步骤一",desc:"这里是步骤一描述",status:1},
+                        {title:"步骤二",desc:"这里是步骤二描述"},
+                        {title:"步骤三",desc:"这里是步骤三描述"},
+                        {title:"步骤四",desc:"这里是步骤四描述"}
+                    ];
+                    new Steps({
+                        elem:'#steps1',
+                        type:"block",
+                        space:"25%",
+                        data:data
+                    });
+                    new Steps({
+                        elem:'#steps2',
+                        space:"25%",
+                        data:data
+                    });
+                    new Steps({
+                        elem:'#steps3',
+                        space:150,
+                        direction:'vertical',
+                        data:data
+                    });
+                </script>
+            </div>
+        </code>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>构造器参数说明(new Steps(obj))</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>参数类型</th>
+                <th>参数值</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>elem</td>
+                <td>String/JQueryDOM</td>
+                <td>-</td>
+                <td>进度条容器</td>
+            </tr>
+            <tr>
+                <td>data</td>
+                <td>Array</td>
+                <td>参考<a href="#data">data参数说明</a></td>
+                <td>步骤条数据信息</td>
+            </tr>
+            <tr>
+                <td>space</td>
+                <td>Number/String</td>
+                <td>
+                    可设置具体宽度及百分比
+                </td>
+                <td>设置间距</td>
+            </tr>
+            <tr>
+                <td>direction</td>
+                <td>String</td>
+                <td>可选值：["horizontal","vertical"],默认"horizontal"</td>
+                <td>设置步骤条方向，该参数只在type="line"情况下生效</td>
+            </tr>
+            <tr>
+                <td>nodeType</td>
+                <td>String</td>
+                <td>可选值：["number","custom"],默认"number"</td>
+                <td>设置节点类型：number为数字；custom自定义</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>String</td>
+                <td>可选值：["line","block"],默认"line"</td>
+                <td>设置步骤条类型</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset" id="data">
+        <legend>data参数说明</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>属性</th>
+                <th>属性类型</th>
+                <th>属性值</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>title</td>
+                <td>String</td>
+                <td>-</td>
+                <td>步骤条标题</td>
+            </tr>
+            <tr>
+                <td>desc</td>
+                <td>String</td>
+                <td>-</td>
+                <td>步骤条描述信息</td>
+            </tr>
+            <tr>
+                <td>status</td>
+                <td>Number</td>
+                <td>可选值：[0,1],0表示待完成，1表示已完成，默认为0</td>
+                <td>当前状态</td>
+            </tr>
+            <tr>
+                <td>icon</td>
+                <td>String</td>
+                <td>iconClass</td>
+                <td>设置节点显示图标，在nodeType="custom"时生效</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script>
+    var data = [
+        {title:"步骤一",desc:"这里是步骤一描述",status:1},
+        {title:"步骤二",desc:"这里是步骤二描述"},
+        {title:"步骤三",desc:"这里是步骤三描述"},
+        {title:"步骤四",desc:"这里是步骤四描述"}
+    ];
+    new Steps({
+        elem:'#blocksteps',
+        type:"block",
+        space:"25%",
+        data:data
+    });
+    new Steps({
+        elem:'#linesteps-h',
+        space:"25%",
+        data:data
+    });
+    new Steps({
+        elem:'#linesteps-v',
+        space:150,
+        direction:'vertical',
+        data:data
+    });
+</script>
+</body>
+</html>

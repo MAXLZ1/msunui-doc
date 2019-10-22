@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .row{
+            margin:10px 0;
+        }
+        .table p{
+            margin: 0;
+            line-height: 22px;
+        }
+        .blue{
+            color:#3896fe;
+            cursor: pointer;
+        }
+        .red{
+            color: #ff0000;
+        }
+        .form-label{
+            width:100px;
+        }
+        .form-input-block{
+            margin-left:120px;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1>表单</h1>
+        <blockquote class="msunui-quote-bg">
+            表单组件中的多选框、单选框、下拉框均自动渲染，无需new Form。单若重新渲染或使用一些Form的方法，必须new一个Form。注：在表单元素中添加ignore-render可阻止元素的渲染
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>表单示例</legend>
+        </fieldset>
+        <div class="tab-nav-terse">
+            <div class="tab-title">
+                <ul>
+                    <li class="active" data-id="effect">效果</li>
+                    <li data-id="code">代码</li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-item" data-target="effect" style="display: block;">
+                    <form id="form" class="msunui-form">
+                        <div class="form-row">
+                            <div class="form-inline  col-lg-4 col-md-4">
+                                <label class="form-label">姓名</label>
+                                <div class="form-input-inline require">
+                                    <input type="text" data-validate="require">
+                                </div>
+                            </div>
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">年龄</label>
+                                <div class="form-input-inline require">
+                                    <input type="text" data-validate="require|posInteger">
+                                </div>
+                            </div>
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">性别</label>
+                                <div class="form-input-inline">
+                                    <input type="radio" name="sex" value="1" title="男" checked>
+                                    <input type="radio" name="sex" value="2" title="女" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">分组下拉</label>
+                                <div class="form-input-inline">
+                                    <select name="domain.cityCode" id="cityCode">
+                                        <optgroup label="医院级别">
+                                            <option value="2">省属医院</option>
+                                        </optgroup>
+                                        <optgroup label="全部城市">
+                                            <option value="370100">济南市</option>
+                                            <option value="370300">淄博市</option>
+                                            <option value="370400">枣庄市</option>
+                                            <option value="370600" selected>烟台市</option>
+                                            <option value="370800">济宁市</option>
+                                            <option value="370900">泰安市</option>
+                                            <option value="371200">莱芜市</option>
+                                            <option value="371300">临沂市</option>
+                                        </optgroup>
+                                        <option value="370100" >济南市</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">规则类型</label>
+                                <div class="form-input-inline require">
+                                    <select id="ruleType" name="ruleDomain.ruleType" data-validate="require">
+                                        <option value="">--请选择--</option>
+                                        <option value="1">完整性规则</option>
+                                        <option value="2">唯一性规则</option>
+                                        <option value="3">一致性规则</option>
+                                        <option value="4" selected>精确度规则</option>
+                                        <option value="5">合理性规则</option>
+                                        <option value="6">及时性规则</option>
+                                        <option value="7">关联性规则</option>
+                                        <option value="8">准确性规则</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">规则类型(搜索)</label>
+                                <div class="form-input-inline ">
+                                    <select id="ruleTypeForSearch" name="ruleDomain.ruleType" data-search>
+                                        <option value="">--请选择--</option>
+                                        <option value="1">完整性规则</option>
+                                        <option value="2">唯一性规则</option>
+                                        <option value="3">一致性规则</option>
+                                        <option value="4" selected>精确度规则</option>
+                                        <option value="5">合理性规则</option>
+                                        <option value="6">及时性规则</option>
+                                        <option value="7">关联性规则</option>
+                                        <option value="8">准确性规则</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">下拉表格</label>
+                                <div class="form-input-inline">
+                                    <input type="text" name="tree" id="tableSelectdemo"/>
+                                </div>
+                            </div>
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">规则类型(禁选)</label>
+                                <div class="form-input-inline">
+                                    <select name="ruleDomain.ruleType" disabled>
+                                        <option value="">--请选择--</option>
+                                        <option value="1">完整性规则</option>
+                                        <option value="2">唯一性规则</option>
+                                        <option value="3">一致性规则</option>
+                                        <option value="4" selected>精确度规则</option>
+                                        <option value="5">合理性规则</option>
+                                        <option value="6">及时性规则</option>
+                                        <option value="7">关联性规则</option>
+                                        <option value="8">准确性规则</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-inline col-lg-4 col-md-4">
+                                <label class="form-label">下拉树</label>
+                                <div class="form-input-inline">
+                                    <input type="text" name="tree" id="treeSelectdemo"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-inline">
+                                <label class="form-label">爱好</label>
+                                <div class="form-input-block">
+                                    <input type="checkbox" name="sports" value="bas" title="篮球"  >
+                                    <input type="checkbox" name="sports" value="foo" title="足球" checked >
+                                    <input type="checkbox" name="sports" value="other" title="其他" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">文本域</label>
+                            <div class="form-input-block require">
+                                <textarea data-validate="require"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-input-block" style="text-align: center">
+                                <button class="btn btn-success btn-rounded">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-item" data-target="code">
+                    <code class="msunui-code" data-escape="true">
+                        <div class="msunui-code-title">
+                            <span class="msunui-text">code</span>
+                        </div>
+                        <div class="msunui-code-content">
+                            <form id="formdemo" class="msunui-form">
+                                <div class="form-row">
+                                    <div class="form-inline  col-lg-4 col-md-4">
+                                        <label class="form-label">姓名</label>
+                                        <div class="form-input-inline require">
+                                            <input type="text" data-validate="require">
+                                        </div>
+                                    </div>
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">年龄</label>
+                                        <div class="form-input-inline require">
+                                            <input type="text" data-validate="require|posInteger">
+                                        </div>
+                                    </div>
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">性别</label>
+                                        <div class="form-input-inline">
+                                            <input type="radio" name="sex" value="1" title="男" checked>
+                                            <input type="radio" name="sex" value="2" title="女" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">分组下拉</label>
+                                        <div class="form-input-inline">
+                                            <select name="domain.cityCode">
+                                                <optgroup label="医院级别">
+                                                    <option value="2">省属医院</option>
+                                                </optgroup>
+                                                <optgroup label="全部城市">
+                                                    <option value="370100">济南市</option>
+                                                    <option value="370300">淄博市</option>
+                                                    <option value="370400">枣庄市</option>
+                                                    <option value="370600" selected>烟台市</option>
+                                                    <option value="370800">济宁市</option>
+                                                    <option value="370900">泰安市</option>
+                                                    <option value="371200">莱芜市</option>
+                                                    <option value="371300">临沂市</option>
+                                                </optgroup>
+                                                <option value="370100" >济南市</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">规则类型</label>
+                                        <div class="form-input-inline require">
+                                            <select name="ruleDomain.ruleType" data-validate="require">
+                                                <option value="">--请选择--</option>
+                                                <option value="1">完整性规则</option>
+                                                <option value="2">唯一性规则</option>
+                                                <option value="3">一致性规则</option>
+                                                <option value="4" selected>精确度规则</option>
+                                                <option value="5">合理性规则</option>
+                                                <option value="6">及时性规则</option>
+                                                <option value="7">关联性规则</option>
+                                                <option value="8">准确性规则</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">规则类型(搜索)</label>
+                                        <div class="form-input-inline">
+                                            <select name="ruleDomain.ruleType" data-search>
+                                                <option value="">--请选择--</option>
+                                                <option value="1">完整性规则</option>
+                                                <option value="2">唯一性规则</option>
+                                                <option value="3">一致性规则</option>
+                                                <option value="4" selected>精确度规则</option>
+                                                <option value="5">合理性规则</option>
+                                                <option value="6">及时性规则</option>
+                                                <option value="7">关联性规则</option>
+                                                <option value="8">准确性规则</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">规则类型(禁选)</label>
+                                        <div class="form-input-inline">
+                                            <select name="ruleDomain.ruleType" disabled>
+                                                <option value="">--请选择--</option>
+                                                <option value="1">完整性规则</option>
+                                                <option value="2">唯一性规则</option>
+                                                <option value="3">一致性规则</option>
+                                                <option value="4" selected>精确度规则</option>
+                                                <option value="5">合理性规则</option>
+                                                <option value="6">及时性规则</option>
+                                                <option value="7">关联性规则</option>
+                                                <option value="8">准确性规则</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-inline col-lg-4 col-md-4">
+                                        <label class="form-label">下拉树</label>
+                                        <div class="form-input-inline">
+                                            <input type="text" name="tree" id="treeSelect"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-inline">
+                                        <label class="form-label">爱好</label>
+                                        <div class="form-input-block">
+                                            <input type="checkbox" name="sports" value="bas" title="篮球"  >
+                                            <input type="checkbox" name="sports" value="foo" title="足球" checked >
+                                            <input type="checkbox" name="sports" value="other" title="其他" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="form-label">文本域</label>
+                                    <div class="form-input-block require">
+                                        <textarea data-validate="require"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-input-block" style="text-align: center">
+                                        <button class="btn btn-success btn-rounded">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <script>
+                            $("#treeSelect").treeSelect({
+                                tree:{
+                                    data:[
+                                        {name:"系统管理",select:true,open:true,children:[
+                                            {name:"欢迎界面"},
+                                            {name:"系统基本配置",children:[
+                                                {name:"口令修改",href:"口令修改连接"},
+                                                {name:"角色管理"},
+                                                {name:"部门管理"}
+                                            ]}
+                                        ]},
+                                        {
+                                            name:"省平台周报",
+                                            open:true,
+                                            select:true,
+                                            children:[
+                                                {name:'周报数据提取',href:"周报数据提取连接"},
+                                                {name:'周报生成',href:"周报生成连接"}
+                                            ]
+                                        }
+                                    ]
+                                },
+                                click:function (data) {
+                                    console.log(data)
+                                }
+                            });
+                        </script>
+                    </code>
+                </div>
+            </div>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>开放接口</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数</th>
+                    <th>返回值</th>
+                    <th>用途</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>init()</td>
+                    <td>-</td>
+                    <td>当前实例</td>
+                    <td>Form初始化，一般不使用。</td>
+                </tr>
+                <tr>
+                    <td>on(eventType,callback)</td>
+                    <td>
+                        <p>eventType:事件类型，参考<a class="blue" href="#eventType">事件类型</a></p>
+                        <p>callback:回调函数</p>
+                    </td>
+                    <td>当前实例</td>
+                    <td>Form绑定事件</td>
+                </tr>
+                <tr>
+                    <td>render()</td>
+                    <td>
+                        <p>不设置参数，重新渲染所有下拉框、单选框、多选框。</p>
+                        <p>有参数时：</p>
+                        <p>示例：</p>
+                        <p>form.render("select(#selector)"):select为渲染的是下拉框(radio是单选框；checkbox是复选框);括号中的是选择器，选中要重新渲染的表单。</p>
+                    </td>
+                    <td>当前实例</td>
+                    <td>用于下拉框、单选框、多选框的重新渲染。</td>
+                </tr>
+                <tr>
+                    <td>addValidationRule(obj)</td>
+                    <td>
+                        <p>obj:要添加的验证对象，两种添加方式：</p>
+                        <p>1：方法方式</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">方法判断</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                form.addValidationRule({
+                                    name:function(obj){     // obj为当前表单的值
+                                        if(/^\d+\d+\d$/.test(obj)){
+                                            return "不能全为数字";
+                                        }
+                                    }
+                                });
+                            </div>
+                        </code>
+                        <p>2.正则方式</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">正则方式</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                form.addValidationRule({
+                                    name：{
+                                        regExp:/^\d+\d+\d$/,
+                                        hint:"不能全为数字"
+                                    }
+                                });
+                            </div>
+                        </code>
+                    </td>
+                    <td>当前实例</td>
+                    <td>添加验证规则。内置验证规则参考<a class="blue toRegExpStore">正则库</a></td>
+                </tr>
+                <tr>
+                    <td>validate()</td>
+                    <td>-</td>
+                    <td>Boolean,验证通过为true</td>
+                    <td>验证表单，提交表单会自动验证，使用ajax方式提交需执行该方法</td>
+                </tr>
+                <tr>
+                    <td>reset()</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>重置表单</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset" id="eventType">
+            <legend>事件类型</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>事件名(*为选择器)</th>
+                    <th>事件说明</th>
+                    <th>回调说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>select(*)</td>
+                    <td>下拉框选中事件</td>
+                    <td>
+                        <p>callback(obj)</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">obj参数说明</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                {
+                                    text: "唯一性规则",     // 被选中的文本
+                                    value: "2",           // 被选中的值
+                                    elem: dom             // 原生表单元素对象
+                                }
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>radio(*)</td>
+                    <td>单选框单选事件</td>
+                    <td>
+                        <p>callback(obj)</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">obj参数说明</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                {
+                                    text: "女",           // 被选中的文本
+                                    value: "2",           // 被选中的值
+                                    elem: dom             // 原生表单元素对象
+                                }
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>checkbox(*)</td>
+                    <td>多选框多选框多选事件</td>
+                    <td>
+                        <p>callback(obj)</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">obj参数说明</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                {
+                                    text: "篮球",        // 被选中的文本
+                                    value: "2",         // 被选中的值
+                                    checked: true,      // 选中状态，true为选中，false未选中
+                                    elem: dom           // 原生表单元素对象
+                                }
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>submit</td>
+                    <td>验证全部通过时执行</td>
+                    <td>
+                        待完成
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="tab-nav-terse">
+                <div class="tab-title">
+                    <ul>
+                        <li class="active" data-id="event">事件示例</li>
+                        <li data-id="code">代码</li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-item" data-target="event">
+                        <form action="" id="selectForm">
+                            <div class="form-row">
+                                <div class="form-inline col-lg-4 col-md-4">
+                                    <label class="form-label">规则类型</label>
+                                    <div class="form-input-inline">
+                                        <select id="selectDemo">
+                                            <option value="">--请选择--</option>
+                                            <option value="1">完整性规则</option>
+                                            <option value="2">唯一性规则</option>
+                                            <option value="3">一致性规则</option>
+                                            <option value="4" selected>精确度规则</option>
+                                            <option value="5">合理性规则</option>
+                                            <option value="6">及时性规则</option>
+                                            <option value="7">关联性规则</option>
+                                            <option value="8">准确性规则</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-inline col-lg-4 col-md-4">
+                                    <label class="form-label">当前被选中：</label>
+                                    <div class="form-input-inline" id="selectDemoText">精确度规则</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-inline col-lg-4 col-md-4">
+                                    <label class="form-label">性别</label>
+                                    <div class="form-input-inline">
+                                        <input type="radio" name="sex1" value="1" title="男" checked>
+                                        <input type="radio" name="sex1" value="2" title="女" >
+                                    </div>
+                                </div>
+                                <div class="form-inline col-lg-4 col-md-4">
+                                    <label class="form-label">当前被选中：</label>
+                                    <div class="form-input-inline" id="radioDemoText">男</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-inline col-lg-4 col-md-4">
+                                    <label class="form-label">爱好</label>
+                                    <div class="form-input-block">
+                                        <input type="checkbox" name="sports1" value="bas" title="篮球"  >
+                                        <input type="checkbox" name="sports1" value="foo" title="足球" checked >
+                                        <input type="checkbox" name="sports1" value="other" title="其他" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-inline col-lg-4 col-md-4">
+                                    <label class="form-label">当前被选中：</label>
+                                    <div class="form-input-inline" id="checkboxDemoText">足球</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-item" data-target="code">
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="mmsunui-text">下拉树 code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                var form2 = new Form({
+                                    elem:"#selectForm"
+                                });
+                                form2.on("select(#selectDemo)",function (obj) {
+                                    console.log(obj);
+                                    $("#selectDemoText").text(obj.text);
+                                });
+                                form2.on("radio(input[name='sex1'])",function (obj) {
+                                    console.log(obj);
+                                    $("#radioDemoText").text(obj.text);
+                                });
+                                form2.on("checkbox(input[name='sports1'])",function (obj) {
+                                    console.log(obj);
+                                    var text = $("#checkboxDemoText").text().replace(/\s+/,''),
+                                        arr = text ? text.split(',') : [];
+                                    if(obj.checked){
+                                        arr.push(obj.text);
+                                    }else{
+                                        $.each(arr, function (index,item) {
+                                            if(item === obj.text){
+                                                arr.splice(index, 1);
+                                                return false;
+                                            }
+                                        });
+                                    }
+                                    $("#checkboxDemoText").text(arr.join(','));
+                                });
+                            </div>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>表单验证</legend>
+        </fieldset>
+        <p>表单验证只需在需要验证的元素上添加data-validate属性即可，多个验证规则使用|分隔，如&lt;input data-validate="require|integer"/&gt;。关于验证规则，Form组件内置多种验证规则，具体参考<a class="blue toRegExpStore">正则库</a>,也可使用addValidationRule添加自定义验证规则。</p>
+        <h1>下拉树</h1>
+        <blockquote class="msunui-quote-bg">
+            下拉树组件使用拓展jQuery方式开发，使用方式为$("#treeForSelect").treeSelect(obj);
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>$("#treeForSelect").treeSelect(obj)中obj参数说明</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>属性名</th>
+                    <th>属性类型</th>
+                    <th>属性值</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>tree</td>
+                    <td>Object</td>
+                    <td>
+                        参考<a class="blue toTree">Tree组件构造器参数说明</a>
+                    </td>
+                    <td>tree组件的配置参数。<span class="red">注：elem不用配置</span></td>
+                </tr>
+                <tr>
+                    <td>width</td>
+                    <td>Number</td>
+                    <td>默认200</td>
+                    <td>配置下拉树的下拉框宽度</td>
+                </tr>
+                <tr>
+                    <td>click</td>
+                    <td>Function</td>
+                    <td>function(data){}
+                        <p>data为点击的节点信息</p>
+                    </td>
+                    <td>配置下拉树的下拉框宽度</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>使用示例</legend>
+        </fieldset>
+        <div class="row">
+            <div style="margin-bottom: 20px;">
+                <div class="form-inline  col-lg-4 col-md-4">
+                    <label class="form-label">下拉树示例</label>
+                    <div class="form-input-inline">
+                        <input name="tree" id="treeSelectDemo1" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="mmsunui-text">下拉树 code</span>
+                </div>
+                <div class="msunui-code-content">
+                    <div style="width: 200px;margin-bottom: 20px;">
+                        <input name="tree" id="downTree" type="text" autocomplete="off">
+                    </div>
+                    <script>
+                        $("#downTree").treeSelect({
+                            tree:{
+                                data:[
+                                    {name:"系统管理",select:true,open:true,children:[
+                                        {name:"欢迎界面"},
+                                        {name:"系统基本配置",children:[
+                                            {name:"口令修改",href:"口令修改连接"},
+                                            {name:"角色管理"},
+                                            {name:"部门管理"}
+                                        ]}
+                                    ]},
+                                    {
+                                        name:"省平台周报",
+                                        open:true,
+                                        select:true,
+                                        children:[
+                                            {name:'周报数据提取',href:"周报数据提取连接"},
+                                            {name:'周报生成',href:"周报生成连接"}
+                                        ]
+                                    }
+                                ]
+                            },
+                            click:function (data) {
+                                console.log(data)
+                            }
+                        });
+                    </script>
+                </div>
+            </code>
+        </div>
+        <h1>下拉表格</h1>
+        <blockquote class="msunui-quote-bg">
+            下拉表格组件使用拓展jQuery方式开发，使用方式为$("#tableForSelect").tableSelect(obj);
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>$("#tableForSelect").tableSelect(obj)中obj参数说明</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>属性名</th>
+                    <th>属性类型</th>
+                    <th>属性值</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>width</td>
+                    <td>Number</td>
+                    <td>默认700</td>
+                    <td>下拉框的宽度</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>Number</td>
+                    <td>默认300</td>
+                    <td>下拉框的高度</td>
+                </tr>
+                <tr>
+                    <td>table</td>
+                    <td>Object</td>
+                    <td>
+                        参考<a class="blue toTable">Table构造器参数说明</a>
+                    </td>
+                    <td>table组件的配置参数。<span class="red">注：elem不用配置</span></td>
+                </tr>
+                <tr>
+                    <td>select</td>
+                    <td>Function</td>
+                    <td>function(data){}
+                        <p>data:被选中的数据</p>
+                    </td>
+                    <td>选择事件，点击选择触发</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>下拉框中要显示的字段</td>
+                </tr>
+                <tr>
+                    <td>uniqueKey</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>唯一标识字段</td>
+                </tr>
+                <tr>
+                    <td>searchKey</td>
+                    <td>String</td>
+                    <td>-</td>
+                    <td>搜索字段</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>使用示例</legend>
+        </fieldset>
+        <div class="row">
+            <div style="margin-bottom: 20px;">
+                <div class="form-inline  col-lg-4 col-md-4">
+                    <label class="form-label">下拉表格示例</label>
+                    <div class="form-input-inline">
+                        <input name="tree" id="tableSelectDemo1" type="text" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="mmsunui-text">下拉表格 code</span>
+            </div>
+            <div class="msunui-code-content">
+                <div style="width: 200px;margin-bottom: 20px;">
+                    <input name="tree" id="downTable" type="text" autocomplete="off">
+                </div>
+                <script>
+                    $("#downTable").tableSelect({
+                        table:{
+                            page:true,
+                            height:250,
+                            tdhide:false,
+                            data:tableData,
+                            cols:[
+                                {field:"id",title:"ID"},
+                                {field:"name",title:"姓名"},
+                                {field:"address",title:"地址"}
+                            ]
+                        },
+                        uniqueKey:"id",
+                        searchKey:"name",
+                        name:"address",
+                        select:function(data){
+                            console.log(this);
+                            console.log(data)
+                            if(data.length !== 1){
+                                layer.msg({
+                                    content:"只能选择一条记录！"
+                                });
+                                return false;
+                            }else{
+                                layer.msg({
+                                    content:"您当前选择的数据为："+JSON.stringify(data),
+                                    time:3000
+                                });
+                                return true;
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </code>
+    </div>
+    <script type="text/javascript" src="./js/msunui.min.js"></script>
+    <script type="text/javascript">
+        var form = new Form({
+            elem:"#form"
+        });
+        var form2 = new Form({
+            elem:"#selectForm"
+        });
+        form2.on("select(#selectDemo)",function (obj) {
+            console.log(obj);
+            $("#selectDemoText").text(obj.text);
+        });
+        form2.on("radio(input[name='sex1'])",function (obj) {
+            console.log(obj);
+            $("#radioDemoText").text(obj.text);
+        });
+        form2.on("checkbox(input[name='sports1'])",function (obj) {
+            console.log(obj);
+            var text = $("#checkboxDemoText").text().replace(/\s+/,''),
+                arr = text ? text.split(',') : [];
+            if(obj.checked){
+                arr.push(obj.text);
+            }else{
+                $.each(arr, function (index,item) {
+                    if(item === obj.text){
+                        arr.splice(index, 1);
+                        return false;
+                    }
+                });
+            }
+            $("#checkboxDemoText").text(arr.join(','));
+        });
+        var layer = new Layer();
+        var tableData = [
+            {id:37,name:"小明",age:12,school:"XX高中",address:"山东省",progress:10,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:75,name:"小红",age:23,school:"XX大学",address:"北京市",progress:30,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:18,name:"小明",age:15,school:"XX大学",address:"山西省",progress:15,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:25,name:"小明",age:18,school:"XX高中",address:"山西省",progress:53,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:1,name:"小刚",age:19,school:"XX高中",address:"山西省",progress:74,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:77,name:"小明",age:11,school:"XX小学",address:"山西省",progress:23,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:58,name:"小明",age:13,school:"XX初中",address:"山西省",progress:45,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:12,name:"小明",age:14,school:"XX高中",address:"山西省",progress:67,desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字。"},
+            {id:43,name:"小明",age:23,school:"XX高中",address:"山西省",progress:78,desc:"XXX8"},
+            {id:54,name:"小明",age:25,school:"XX高中",address:"山西省",progress:25,desc:"XXX8"},
+            {id:13,name:"小明",age:15,school:"XX高中",address:"山西省",progress:73,desc:"XXX8"}
+        ];
+        $(".toRegExpStore").on("click",function(){
+            window.parent.tab.addItem({id:"regExpFactory",title:"正则库",url:"regExpFactory.html"})
+        });
+        // 下拉树
+        $("#treeSelectdemo").treeSelect({
+            tree:{
+                data:[
+                    {name:"系统管理",select:true,open:true,children:[
+                        {name:"欢迎界面"},
+                        {name:"系统基本配置",children:[
+                            {name:"口令修改",href:"口令修改连接"},
+                            {name:"角色管理"},
+                            {name:"部门管理"}
+                        ]}
+                    ]},
+                    {
+                        name:"省平台周报",
+                        open:true,
+                        select:true,
+                        children:[
+                            {name:'周报数据提取',href:"周报数据提取连接"},
+                            {name:'周报生成',href:"周报生成连接"}
+                        ]
+                    }
+                ]
+            },
+            click:function (data) {
+                console.log(data)
+            }
+        });
+        $("#treeSelectDemo1").treeSelect({
+            tree:{
+                data:[
+                    {name:"系统管理",select:true,open:true,children:[
+                        {name:"欢迎界面"},
+                        {name:"系统基本配置",children:[
+                            {name:"口令修改",href:"口令修改连接"},
+                            {name:"角色管理"},
+                            {name:"部门管理"}
+                        ]}
+                    ]},
+                    {
+                        name:"省平台周报",
+                        open:true,
+                        select:true,
+                        children:[
+                            {name:'周报数据提取',href:"周报数据提取连接"},
+                            {name:'周报生成',href:"周报生成连接"}
+                        ]
+                    }
+                ]
+            },
+            click:function (data) {
+                layer.msg({
+                    content:"您当前选择的数据为:"+JSON.stringify(data),
+                    time:3000
+                });
+            }
+        });
+        // 下拉table
+        $("#tableSelectdemo").tableSelect({
+            table:{
+                page:true,
+                height:250,
+                tdhide:false,
+                data:tableData,
+                cols:[
+                    {field:"id",title:"ID"},
+                    {field:"name",title:"姓名"},
+                    {field:"address",title:"地址"}
+                ]
+            },
+            uniqueKey:"id",
+            searchKey:"name",
+            name:"address",
+            select:function(data){
+                console.log(this);
+                console.log(data)
+                if(data.length !== 1){
+                    new Layer().msg({
+                        content:"只能选择一条记录！"
+                    });
+                    return false;
+                }
+                return true;
+            }
+        });
+        $("#tableSelectDemo1").tableSelect({
+            table:{
+                page:true,
+                height:250,
+                tdhide:false,
+                data:tableData,
+                /*url:'http://10.68.137.76:8888/msunui-api/table/json',*/
+                cols:[
+                    {field:"id",title:"ID"},
+                    {field:"name",title:"姓名"},
+                    {field:"address",title:"地址"}
+                ]
+            },
+            uniqueKey:"id",
+            searchKey:"name",
+            name:"address",
+            select:function(data){
+                console.log(this);
+                console.log(data)
+                if(data.length !== 1){
+                    layer.msg({
+                        content:"只能选择一条记录！"
+                    });
+                    return false;
+                }else{
+                    layer.msg({
+                        content:"您当前选择的数据为："+JSON.stringify(data),
+                        time:3000
+                    });
+                    return true;
+                }
+            }
+        });
+        $(".toTree").click(function () {
+            window.top.tab.addItem({id:"tree",title:"树组件",url:"tree.html#constructor"});
+        });
+        $(".toTable").click(function () {
+            window.top.tab.addItem({id:"datatable",title:"数据表格",url:"datatable.html#constructor"});
+        });
+    </script>
+</body>
+</html>

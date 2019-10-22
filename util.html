@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+    <style>
+        .table p{
+            margin: 0;
+            line-height: 22px;
+        }
+        .row{
+            margin-top: 20px;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1>工具类 Util</h1>
+        <blockquote class="msunui-quote-bg">
+            Util类提供了多种工具方法。
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>工具方法</legend>
+        </fieldset>
+        <blockquote class="msunui-quote-bg">
+            工具方法均挂载至Util类中，使用Util.xxx()调用。
+        </blockquote>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left" data-hover="false">
+                <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数</th>
+                    <th style="width: 80px">返回值</th>
+                    <th style="width: 30%">说明</th>
+                    <th style="width: 30%">使用示例</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>isString(obj)</td>
+                    <td rowspan="10">obj(Object):判断参数</td>
+                    <td rowspan="10">Boolean</td>
+                    <td>判断是否为字符串</td>
+                    <td rowspan="10">
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">数据类型判断code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var obj = '1';
+                                    Util.isString(obj);     // true
+                                    Util.isBoolean(obj);    // false
+                                    Util.isNumber(obj);     // false
+                                    Util.isDecimal(obj);    // false
+                                    Util.isPercentage(obj); // false
+                                    Util.isFunction(obj);   // false
+                                    Util.isArray(obj);      // false
+                                    Util.isObject(obj);     // false
+                                    Util.isJQuery(obj);     // false
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>isBoolean(obj)</td>
+                    <td>判断是否为布尔值</td>
+                </tr>
+                <tr>
+                    <td>isNumber(obj)</td>
+                    <td>判断是否为数字类型</td>
+                </tr>
+                <tr>
+                    <td>isDecimal(obj)</td>
+                    <td>判断是不是小数</td>
+                </tr>
+                <tr>
+                    <td>isPercentage(obj)</td>
+                    <td>判断是不是百分号数字</td>
+                </tr>
+                <tr>
+                    <td>isFunction(obj)</td>
+                    <td>判断是否为方法</td>
+                </tr>
+                <tr>
+                    <td>isArray(obj)</td>
+                    <td>判断是否为数组</td>
+                </tr>
+                <tr>
+                    <td>isObject(obj)</td>
+                    <td>判断是否为对象</td>
+                </tr>
+                <tr>
+                    <td>isJQuery</td>
+                    <td>判断是否为JQuery对象</td>
+                </tr>
+                <tr>
+                    <td>isColor</td>
+                    <td>判断色值是否正确(支持16进制与rgba/rgb)</td>
+                </tr>
+                <tr>
+                    <td>arraySortByProperty(arr,property,sort)</td>
+                    <td>
+                        <p>arr(Array):数组</p>
+                        <p>property(String):对象属性</p>
+                        <p>sort(String):升序(asc)或降序(desc),默认升序</p>
+                    </td>
+                    <td>-</td>
+                    <td>数组根据对象属性排序</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">arraySortByProperty-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var arr = [
+                                        {name:"Mark",age:12},
+                                        {name:"Jame",age:19},
+                                        {name:"Marry",age:11},
+                                        {name:"Jay",age:9}
+                                    ];
+                                    Util.arraySortByProperty(arr,"name");
+                                    console.log(arr);
+                                    /*[
+                                        {name: "Jame", age: 19},
+                                        {name: "Jay", age: 9},
+                                        {name: "Mark", age: 12},
+                                        {name: "Marry", age: 11}
+                                    ]*/
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getScrollWidth()</td>
+                    <td>-</td>
+                    <td>Number</td>
+                    <td>获取浏览器原始滚动条宽度</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getScrollWidth-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    Util.getScrollWidth();  // 谷歌浏览器返回17
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>removeObjectFromArray(arr,obj)</td>
+                    <td>
+                        <p>arr(Array):数组</p>
+                        <p>obj(Object):指定对象</p>
+                    </td>
+                    <td>-</td>
+                    <td>从指定数组中删除指定对象</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">removeObjectFromArray-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var obj1 = {name:"Mark",age:12},
+                                        obj2 = {name:"Jame",age:19},
+                                        obj3 = {name:"Marry",age:11},
+                                        arr1 = [obj1,obj2,obj3,obj2];
+                                    Util.removeObjectFromArray(arr1,obj2);
+                                    console.log(arr);
+                                    /*
+                                    [
+                                        {name:"Mark",age:12},
+                                        {name:"Marry",age:11}
+                                    ]*/
+                                    var arr2 = ["aa","bb","cc"];
+                                    Util.removeObjectFromArray(arr2,"aa");
+                                    console.log(arr2);  // ["bb","cc"]
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>textSelectByDom(dom,select)</td>
+                    <td>
+                        <p>dom(Element):指定DOM,原生DOM对象</p>
+                        <p>select(Boolean):是否启用文字选中，默认false不启用</p>
+                    </td>
+                    <td>-</td>
+                    <td>dom是否开启文字选中状态，兼容IE8(问题，一旦将鼠标移至指定DOM父节点上文字就可选中，可使用css：user-select:none禁止用户选择(不兼容IE8))</td>
+                    <td>
+                        <p class="noSelect">改行文字不可选中</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">textSelectByDom-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <p class="noSelect">改行文字不可选中</p>
+                                <script>
+                                    Util.textSelectByDom($(".noSelect")[0]);
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getuuid(length,radix)</td>
+                    <td>
+                        <p>length(Number):uuid长度</p>
+                        <p>radix(Number):进制基数</p>
+                    </td>
+                    <td>String</td>
+                    <td>生成uuid</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getuuid-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var uuid  = Util.getuuid(10,16);
+                                    console.log(uuid);  // "456B9FEBCE",每次打印不一样
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>checkBrower()</td>
+                    <td>-</td>
+                    <td>Object</td>
+                    <td>
+                        <p>获取浏览器信息.</p>
+                        <p>IE中获取会多一个mode属性，该属性为当前文档模式，以此属性判断是否为IE8</p>
+                    </td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">checkBrower-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var info = Util.checkBrower();
+                                    console.log(info);
+                                    //Google打印:{browser: "Chrome", version: "71.0.3578.98"}
+                                    //IE打印：{browser: "Chrome", mode:8, version: "9"}
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>open(url,width,height)</td>
+                    <td>
+                        <p>url:链接地址</p>
+                        <p>width:新打开窗口宽度</p>
+                        <p>width:新打开窗口高度</p>
+                    </td>
+                    <td>window:返回新打开窗口的window</td>
+                    <td>新打开窗口,居中显示</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">checkBrower-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    Util.open("http://www.baidu.com",700,400);
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>debounce(fn, wait,scope,...)</td>
+                    <td>
+                        <p>fn：函数变量</p>
+                        <p>wait：间隔时间</p>
+                        <p>scope：函数运行作用域</p>
+                        <p>...：参数项</p>
+                    </td>
+                    <td>Function</td>
+                    <td>优化手段，常用与一些短时间内频繁触发的一些事件使用，如resize、scroll等事件</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">debounce-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    // Table组件中使用示例
+                                    $(window).resize(Util.debounce(that.layoutTable,100,that,table,true));
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>扩展方法</legend>
+        </fieldset>
+        <blockquote class="msunui-quote-bg">
+            扩展方法均是基于原生JavaScript对象进行的扩展。
+        </blockquote>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left" data-hover="false">
+                <thead>
+                <tr>
+                    <th style="min-width: 85px">扩展对象</th>
+                    <th>挂载点</th>
+                    <th>方法名</th>
+                    <th>参数</th>
+                    <th>返回值</th>
+                    <th>说明</th>
+                    <th>使用示例</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td rowspan="2">Array</td>
+                    <td rowspan="2">Array.prototype</td>
+                    <td>indexOfByPropertyValue(property,value)</td>
+                    <td>
+                        <p>property(String):属性名</p>
+                        <p>value(Object):属性值</p>
+                    </td>
+                    <td>Number,返回对应索引，没有返回-1.</td>
+                    <td>根据某属性值判断数组中是否有对应对象</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">indexOfByPropertyValue-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var arr = [
+                                        {name:"Mark",age:12},
+                                        {name:"Jame",age:19},
+                                        {name:"Marry",age:11},
+                                        {name:"Jay",age:9}
+                                    ];
+                                    arr.indexOfByPropertyValue("name","Jame");  //  1
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>indexOf(value)</td>
+                    <td>
+                        value(Object)
+                    </td>
+                    <td>Number，有返回索引，无返回-1</td>
+                    <td>数组中是否有某对象。该方法为IE8的兼容性处理</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">indexOf-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var arr = [1,2,3];
+                                    arr.indexOf(1); // 0
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="6">Date</td>
+                    <td rowspan="4">Date.prototype</td>
+                    <td>getWeek(mode)</td>
+                    <td>
+                        <p>mode(String):周算法模式，可选值：["ISO8601","NORMAL"],默认"ISO8601"</p>
+                    </td>
+                    <td>
+                        <p>Object</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getWeek返回值</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    {
+                                        year: 2019, //  当前周所在年
+                                        week: 9,    //  当前周
+                                        startDate: ,  // 当前周开始时间(Date对象)
+                                        endDate:      // 当前周结束时间(Date对象)
+                                    }
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                    <td>返回当前日期所在周信息</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getWeek-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    var week = new Date(2019,2,3).getWeek();
+                                    console.log(week);
+                                    /*{
+                                        year: 2019,
+                                        week: 9,
+                                        startDate: Mon Feb 25 2019 00:00:00 GMT+0800 (中国标准时间),
+                                        endDate: Sun Mar 03 2019 00:00:00 GMT+0800 (中国标准时间)
+                                    }*/
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getDays()</td>
+                    <td>-</td>
+                    <td>Number</td>
+                    <td>获取当前日期是一年中的第几天</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getDays-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    new Date(2019,2,4).getDays();   // 63
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getQuarter()</td>
+                    <td>-</td>
+                    <td>Number</td>
+                    <td>计算当前日期所属季度</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getQuarter-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    new Date(2019,2,4).getQuarter();    // 1
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>format(format,mode)</td>
+                    <td>
+                        <p>formar:格式化的格式</p>
+                        <p>mode:周算法，同计算周的mode参数一致</p>
+                    </td>
+                    <td>String</td>
+                    <td>格式化日期</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getQuarter-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    new Date().format('yyyy-MM-dd HH:mm:ss');
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Date</td>
+                    <td>getWeekRange(year,week,mode)</td>
+                    <td>
+                        <p>year(Number):年份</p>
+                        <p>week(Number):周数</p>
+                        <p>mode(String):同计算周的mode参数一致</p>
+                    </td>
+                    <td>
+                        <p>Object.</p>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getWeekRange返回Object结构</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    {
+                                        startDate: ,    // 开始时间(Date类型)
+                                        enddDate        // 结束时间(Date类型)
+                                    }
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                    <td>计算当前周的开始结束时间</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getWeekRange-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    Date.getWeekRange(2019,9);
+                                    /*{
+                                        startDate: Mon Feb 25 2019 00:00:00 GMT+0800 (中国标准时间),
+                                        endDate: Sun Mar 03 2019 00:00:00 GMT+0800 (中国标准时间)
+                                    }*/
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getEndDate(year,month)</td>
+                    <td>
+                        <p>year(String):年份</p>
+                        <p>month(String):月份</p>
+                    </td>
+                    <td>Date</td>
+                    <td>获取当前月份的结束日期</td>
+                    <td>
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">getEndDate-code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <script>
+                                    Date.getEndDate(2019,3);
+                                </script>
+                            </div>
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>String</td>
+                    <td>String.prototype</td>
+                    <td>trim()</td>
+                    <td>-</td>
+                    <td>String</td>
+                    <td>字符串去空格</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/msunui.min.js"></script>
+    <script type="text/javascript">
+        Util.textSelectByDom($(".noSelect")[0]);
+    </script>
+</body>
+</html>

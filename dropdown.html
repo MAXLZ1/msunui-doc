@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+<body>
+    <div class="container doc">
+        <h1>下拉菜单 dropdown</h1>
+        <blockquote class="msunui-quote-bg">
+            单独显示下拉的菜单
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>使用方式</legend>
+        </fieldset>
+        <div class="row">
+            <p>1.编写html</p>
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">dropdown code（html）</span>
+                </div>
+                <div class="msunui-code-content">
+                    <!-- .msunui-dropdown指定下拉组件  -->
+                    <div class="msunui-dropdown" id="dropdown1">
+                        <!-- .msunui-dropdown-toggle指定切换dom -->
+                        <button class="msunui-dropdown-toggle btn btn-info btn-rounded">
+                            下拉菜单
+                        </button>
+                        <!-- .msunui-dropdown-menu指定切换的菜单 -->
+                        <ul class="msunui-dropdown-menu">
+                            <li>菜单一</li>
+                            <li>菜单二</li>
+                            <li>菜单三</li>
+                            <li>菜单四</li>
+                        </ul>
+                    </div>
+                </div>
+            </code>
+            <p>2.编写js</p>
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">dropdown code（javascript）</span>
+                </div>
+                <div class="msunui-code-content">
+                    $('#dropdown1').dropdown({
+                        // 切换菜单回调，this指向被点击的DOM节点
+                        toggle:function () {
+                            console.log(this)
+                        }
+                    });
+                </div>
+            </code>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>使用示例</legend>
+        </fieldset>
+        <div class="row">
+            <div class="tab-nav-terse">
+                <div class="tab-title">
+                    <ul>
+                        <li class="active" data-id="effect">效果</li>
+                        <li data-id="code">代码</li>
+                    </ul>
+                </div>
+                <div class="tab-content" style="height: 400px;">
+                    <div class="tab-item" data-target="effect">
+                        <div class="msunui-dropdown" id="dropdowndemo">
+                            <button class="msunui-dropdown-toggle btn btn-info btn-rounded">
+                                下拉菜单
+                            </button>
+                            <ul class="msunui-dropdown-menu">
+                                <li>菜单一</li>
+                                <li>菜单二</li>
+                                <li>菜单三</li>
+                                <li>菜单四</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-item" data-target="code">
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">dropdown code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <div class="msunui-dropdown" id="dropdown">
+                                    <button class="msunui-dropdown-toggle btn btn-info btn-rounded">
+                                        下拉菜单
+                                    </button>
+                                    <ul class="msunui-dropdown-menu">
+                                        <li>菜单一</li>
+                                        <li>菜单二</li>
+                                        <li>菜单三</li>
+                                        <li>菜单四</li>
+                                    </ul>
+                                </div>
+                                <script type="text/javascript">
+                                    $('#dropdown').dropdown({
+                                        toggle:function () {
+                                            console.log(this)
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/msunui.min.js"></script>
+    <script type="text/javascript">
+        $('#dropdowndemo').dropdown({
+            toggle:function () {
+                console.log(this)
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .table p{
+            margin: 0;
+            line-height: 22px;
+        }
+        input[type="text"]{
+            width: 150px;
+        }
+    </style>
+<body>
+<div class="container doc">
+    <h1>日期/时间 DatePicker</h1>
+    <blockquote class="msunui-quote-bg">
+        提供多类型日期选择，如日、周、月、季、年。日期组件对于周的计算采用两种算法：1.ISO8601:使用每年的的第一个周四所在的周为第一周；2.NORMAL：使用每年的1月1日所在的周为第一周。
+    </blockquote>
+    <fieldset class="msunui-fieldset">
+        <legend>使用示例</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>类型</th>
+                <th>说明</th>
+                <th style="width: 50%">效果展示</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>日类型</td>
+                <td>type="date",默认</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                日期：<input type="text" id="datePicker-date" autocomplete="off">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        日期：<input type="text" id="date" autocomplete="off">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#date"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>周类型</td>
+                <td>type="week"</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                日期：<input type="text" id="datePicker-week" autocomplete="off">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        日期：<input type="text" id="week" autocomplete="off">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#week",
+                                                type:"week"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>月类型</td>
+                <td>type="month"</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                日期：<input type="text" id="datePicker-month" autocomplete="off">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        日期：<input type="text" id="month" autocomplete="off">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#month",
+                                                type:"month"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>季类型</td>
+                <td>type="quarter"</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                日期：<input type="text" id="datePicker-quarter" autocomplete="off">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        日期：<input type="text" id="quarter" autocomplete="off">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#quarter",
+                                                type:"quarter"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>年类型</td>
+                <td>type="year"</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                日期：<input type="text" id="datePicker-year" autocomplete="off">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        日期：<input type="text" id="year" autocomplete="off">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#year",
+                                                type:"year"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>时间类型</td>
+                <td>type="time"</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                时间：<input type="text" id="datePicker-time" autocomplete="off">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        时间：<input type="text" id="time" autocomplete="off">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#year",
+                                                type:"time"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>日期时间类型</td>
+                <td>type="datetime"</td>
+                <td>
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="effect">效果</li>
+                                <li data-id="code">code</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" style="height:150px">
+                            <div class="tab-item" data-target="effect">
+                                时间：<input type="text" id="datePicker-datetime">
+                            </div>
+                            <div class="tab-item" data-target="code">
+                                <code class="msunui-code" data-escape="true">
+                                    <div class="msunui-code-title">
+                                        <span class="msunui-text">日期日类型code</span>
+                                    </div>
+                                    <div class="msunui-code-content">
+                                        时间：<input type="text" id="datetime">
+                                        <script>
+                                            new DatePicker({
+                                                elem:"#year",
+                                                type:"datetime"
+                                            });
+                                        </script>
+                                    </div>
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>开放接口</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>方法名</th>
+                <th>参数</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>init</td>
+                <td>-</td>
+                <td>初始化，一般不需要使用。</td>
+            </tr>
+            <tr>
+                <td>on</td>
+                <td>
+                    <p>eventType:事件类型，参考<a href="#eventType">事件类型</a></p>
+                    <p>callback:回调函数</p>
+                </td>
+                <td>注册事件</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>事件类型</legend>
+    </fieldset>
+    <div class="row" id="eventType">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>事件名</th>
+                <th>事件说明</th>
+                <th>回调说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>done</td>
+                <td>时间选择完毕事件，点击日期、确定、现在、清空均可触发，即一切可确定目标节点的日期值的操作均触发done事件</td>
+                <td>
+                    <p>callback(obj)</p>
+                    <p>obj:被选中的值</p>
+                </td>
+            </tr>
+            <!--<tr>
+                <td>change</td>
+                <td>日期发生变化即可触发</td>
+                <td>
+                    <p>callback(obj)</p>
+                    <p>obj:被选中的值</p>
+                </td>
+            </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>参数说明</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>参数类型</th>
+                <th>参数值</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>elem</td>
+                <td>String/JQueryDom</td>
+                <td>-</td>
+                <td>日期触发dom</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>String</td>
+                <td>
+                    <p>可选值</p>
+                    <p>1.date:日类型，默认值</p>
+                    <p>2.week:周类型</p>
+                    <p>3.month:月类型</p>
+                    <p>4.quarter:季类型</p>
+                    <p>5.year:年类型</p>
+                    <p>6.time:时间类型</p>
+                    <p>7.datetime:日期时间类型</p>
+                </td>
+                <td>日期组件类型</td>
+            </tr>
+            <tr>
+                <td>format</td>
+                <td>String</td>
+                <td>
+                    <p>date默认:yyyy-MM-dd</p>
+                    <p>week默认:yyyy-ww</p>
+                    <p>quarter默认:yyyy-qq</p>
+                    <p>month默认:yyyy-MM</p>
+                    <p>year默认:yyyy</p>
+                    <p>time默认:HH:mm:ss</p>
+                    <p>date默认:yyyy-MM-dd HH:mm:ss</p>
+                    <p>关于format使用参考<a href="#format">format格式化说明</a></p>
+                </td>
+                <td>日期格式化模板</td>
+            </tr>
+            <tr>
+                <td>value</td>
+                <td>String</td>
+                <td>默认为当前时间</td>
+                <td>日期组件的值</td>
+            </tr>
+            <tr>
+                <td>weekAlgorithm</td>
+                <td>String</td>
+                <td>
+                    <p>可选值：</p>
+                    <p>1.ISO8601:每年的第一个周四所在的周为第一周</p>
+                    <p>2.NORMAL:每年的1月1日所在的那周为第一周</p>
+                </td>
+                <td>周算法，日期类型为week时有效</td>
+            </tr>
+            <tr>
+                <td>firstDayOfWeek</td>
+                <td>Number</td>
+                <td>
+                    <p>可选值：</p>
+                    <p>0：周天</p>
+                    <p>1：周一</p>
+                </td>
+                <td>设置日期组件第一周从哪天起</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset" id="format">
+        <legend>format格式化说明</legend>
+    </fieldset>
+    <div class="row">
+        <div class="col-lg-6">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>格式符</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>yyyy</td>
+                    <td>年份，不足四位自动补零</td>
+                </tr>
+                <tr>
+                    <td>qq</td>
+                    <td>季度，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>q</td>
+                    <td>季度，不补零</td>
+                </tr>
+                <tr>
+                    <td>MM</td>
+                    <td>月份，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>月份，不补零</td>
+                </tr>
+                <tr>
+                    <td>ww</td>
+                    <td>周，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>w</td>
+                    <td>周，不补零</td>
+                </tr>
+                <tr>
+                    <td>dd</td>
+                    <td>日，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>日，不补零</td>
+                </tr>
+                <tr>
+                    <td>HH</td>
+                    <td>小时，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>H</td>
+                    <td>小时，不补零</td>
+                </tr>
+                <tr>
+                    <td>mm</td>
+                    <td>分钟，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>m</td>
+                    <td>分钟，不补零</td>
+                </tr>
+                <tr>
+                    <td>ss</td>
+                    <td>秒，不足两位自动补零</td>
+                </tr>
+                <tr>
+                    <td>s</td>
+                    <td>秒，不补零</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>format示例</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>yyyy-MM-dd</td>
+                    <td>2019-03-03</td>
+                </tr>
+                <tr>
+                    <td>yyyy/m/d</td>
+                    <td>2019/3/3</td>
+                </tr>
+                <tr>
+                    <td>yyyy年M月d日</td>
+                    <td>2019年3月3日</td>
+                </tr>
+                <tr>
+                    <td>yyyy年第q季度</td>
+                    <td>2019年第1季度</td>
+                </tr>
+                <tr>
+                    <td>yyyyqq</td>
+                    <td>201901</td>
+                </tr>
+                <tr>
+                    <td>yyyy年第w周</td>
+                    <td>2019年第10周</td>
+                </tr>
+                <tr>
+                    <td>yyyy-ww</td>
+                    <td>2019-10</td>
+                </tr>
+                <tr>
+                    <td>HH:mm:ss</td>
+                    <td>05:08:05</td>
+                </tr>
+                <tr>
+                    <td>H:m:s</td>
+                    <td>5:8:5</td>
+                </tr>
+                <tr>
+                    <td>HH时mm分ss秒</td>
+                    <td>12时22分45秒</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script type="text/javascript">
+    var layer = new Layer();
+    var date1 = new DatePicker({
+        elem:$("#datePicker-date")
+    });
+    var date2 = new DatePicker({
+        elem:$("#datePicker-year"),
+        type:"year"
+    });
+    var date3 = new DatePicker({
+        elem:$("#datePicker-month"),
+        type:"month"
+    });
+    var date4 = new DatePicker({
+        elem:$("#datePicker-quarter"),
+        type:"quarter"
+    });
+    var date5 = new DatePicker({
+        elem:$("#datePicker-week"),
+        type:"week"
+    });
+    var date6 = new DatePicker({
+        elem:$("#datePicker-time"),
+        type:"time"
+    });
+    var date7 = new DatePicker({
+        elem:$("#datePicker-datetime"),
+        type:"datetime"
+    });
+    date1.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+    date2.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+    date3.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+    date4.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+    date5.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+    date6.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+    date7.on("done",function(data){
+        layer.msg({
+            content:"触发done事件，当前被选中日期为："+data
+        });
+    });
+</script>
+</body>
+</html>

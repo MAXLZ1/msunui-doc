@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .table p{
+            margin: 0;
+            line-height: 22px;
+        }
+        .row{
+            margin-top:10px;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1>标签页 Tab</h1>
+        <blockquote class="msunui-quote-bg">
+            标签页主要用于后台主体框架搭建，通过添加ifram加载页面。容器添加.tab。
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>开放接口</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>init</td>
+                    <td>-</td>
+                    <td>初始化，一般不需要使用。</td>
+                </tr>
+                <tr>
+                    <td>on</td>
+                    <td>
+                        <p>eventType:事件类型，参考<a href="#eventType">事件类型</a></p>
+                        <p>callback:回调函数</p>
+                    </td>
+                    <td>标签页绑定点击事件</td>
+                </tr>
+                <tr>
+                    <td>reloadCurrTab</td>
+                    <td>-</td>
+                    <td>刷新当前打开的标签页</td>
+                </tr>
+                <tr>
+                    <td>addItem</td>
+                    <td>obj:Object。
+                        <p>{id:'tab1',title:"tab3",url:"tab3.html"}</p>
+                    </td>
+                    <td>添加标签</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>参数说明</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>参数名</th>
+                    <th>参数类型</th>
+                    <th>参数值</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>elem</td>
+                    <td>String/JQueryDom</td>
+                    <td>-</td>
+                    <td>配置容器Dom</td>
+                </tr>
+                <tr>
+                    <td>data</td>
+                    <td>Array</td>
+                    <td>
+                        单元项数据格式
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title" >
+                                <span class="msunui-text">code</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                {
+                                    id:1,            //唯一标识
+                                    title:"标签1",    //标签页标题
+                                    url:"",          //标签页对应URL
+                                    close:true       //该标签页是否可关闭，默认为true
+                                }
+                            </div>
+                        </code>
+                    </td>
+                    <td>配置标签页数据</td>
+                </tr>
+                <tr>
+                    <td>selected</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>默认打开的tab页的id</td>
+                </tr>
+                <tr>
+                    <td>loadType</td>
+                    <td>String</td>
+                    <td>
+                        <p>1.one:单iframe加载</p>
+                        <p>2.more:多iframe加载</p>
+                    </td>
+                    <td>页面加载方式(推荐使用单iframe加载)</td>
+                </tr>
+                <tr>
+                    <td>refresh</td>
+                    <td>Boolean</td>
+                    <td>
+                        <p>1.true:默认值，刷新tab页</p>
+                        <p>2.false:不刷新tab页</p>
+                    </td>
+                    <td>控制tab页是否刷新，只在loadType:'more'下生效</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>标签页相关事件</legend>
+        </fieldset>
+        <div class="rwo" id="eventType">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>事件名</th>
+                    <th>事件说明</th>
+                    <th>回调说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>change</td>
+                    <td>tab切换事件</td>
+                    <td>
+                        <p>callback(obj)</p>
+                        <p>obj:切换的tabItem的数据</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>close</td>
+                    <td>tab关闭事件</td>
+                    <td>
+                        <p>callback(obj)</p>
+                        <p>obj:关闭的tabItem的数据</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>代码示例</legend>
+        </fieldset>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-title">tab代码示例</span>
+            </div>
+            <div class="msunui-code-content">
+                <div id="tab" class="tab"></div>
+                <script type="text/javascript">
+                    var tab = new Tab({
+                        elem:"#tab",
+                        selected:"tab1",
+                        loadType:'one',
+                        data:[
+                            {id:"tab1",title:"首页",url:"xxx1.html",close:false},
+                            {id:2,title:"标签页2",url:"xxx2.html"}
+                        ]
+                    });
+                </script>
+            </div>
+        </code>
+        <div class="row">
+            <div id="demo" class="tab"></div>
+        </div>
+        <h1>导航标签页</h1>
+        <blockquote class="msunui-quote-bg">
+            类似标签页的导航，可使用iframe或div加载需要内容，使用方式如下。
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>添加类名</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>类名</th>
+                    <th>风格</th>
+                    <th>效果</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>.tab-nav</td>
+                    <td>默认风格</td>
+                    <td>
+                        <div class="tab-nav">
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active" data-id="personInfo">个人信息</li>
+                                    <li data-id="personset">个人设置</li>
+                                    <li data-id="baseInfo">账号信息</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-item" data-target="personInfo">个人信息</div>
+                                <div class="tab-item" data-target="personset">个人设置</div>
+                                <div class="tab-item" data-target="baseInfo">账号信息</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.tab-nav-card</td>
+                    <td>卡片风格</td>
+                    <td>
+                        <div class="tab-nav-card">
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active" data-id="personInfo">个人信息</li>
+                                    <li data-id="personset">个人设置</li>
+                                    <li data-id="baseInfo">账号信息</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-item" data-target="personInfo">个人信息</div>
+                                <div class="tab-item" data-target="personset">个人设置</div>
+                                <div class="tab-item" data-target="baseInfo">账号信息</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.tab-nav-terse</td>
+                    <td>简洁风格</td>
+                    <td>
+                        <div class="tab-nav-terse">
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active" data-id="personInfo">个人信息</li>
+                                    <li data-id="personset">个人设置</li>
+                                    <li data-id="baseInfo">账号信息</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-item" data-target="personInfo">个人信息</div>
+                                <div class="tab-item" data-target="personset">个人设置</div>
+                                <div class="tab-item" data-target="baseInfo">账号信息</div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">导航Tab代码示例</span>
+                </div>
+                <div class="msunui-code-content">
+                    <!-- 1.默认风格 -->
+                    <div class="tab-nav">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="personInfo">个人信息</li>
+                                <li data-id="personset">个人设置</li>
+                                <li data-id="baseInfo">账号信息</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-item" data-target="personInfo">个人信息</div>
+                            <div class="tab-item" data-target="personset">个人设置</div>
+                            <div class="tab-item" data-target="baseInfo">账号信息</div>
+                        </div>
+                    </div>
+                    <!-- 2.卡片风格 -->
+                    <div class="tab-nav-card">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="personInfo">个人信息</li>
+                                <li data-id="personset">个人设置</li>
+                                <li data-id="baseInfo">账号信息</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-item" data-target="personInfo">个人信息</div>
+                            <div class="tab-item" data-target="personset">个人设置</div>
+                            <div class="tab-item" data-target="baseInfo">账号信息</div>
+                        </div>
+                    </div>
+                    <!-- 3.简洁风格 -->
+                    <div class="tab-nav-terse">
+                        <div class="tab-title">
+                            <ul>
+                                <li class="active" data-id="personInfo">个人信息</li>
+                                <li data-id="personset">个人设置</li>
+                                <li data-id="baseInfo">账号信息</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-item" data-target="personInfo">个人信息</div>
+                            <div class="tab-item" data-target="personset">个人设置</div>
+                            <div class="tab-item" data-target="baseInfo">账号信息</div>
+                        </div>
+                    </div>
+                </div>
+            </code>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>导航标签页事件</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>事件名</th>
+                    <th>时间说明</th>
+                    <th>回调说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>change</td>
+                    <td>tab切换事件</td>
+                    <td>
+                        <p>callback(obj)</p>
+                        <p>obj.title:tab标题原生Dom</p>
+                        <p>obj.content:tab内容原生Dom</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script type="text/javascript">
+    var tab = new Tab({
+        elem:"#demo",
+        selected:"tab1",
+        loadType:'one',
+        data:[
+            {id:"tab1",title:"首页",url:"tabItemOne.html",close:false},
+            {id:2,title:"标签页2",url:"https://github.com/"}
+        ]
+    });
+</script>
+</body>
+</html>

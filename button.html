@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .row{
+            margin-bottom:20px;
+        }
+        .btn-group{
+            display: block;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1>按钮 Button</h1>
+        <blockquote class="msunui-quote-bg">
+            Button只需添加相应class即可。添加.btn可添加一个默认的button，通过.btn-sm、.btn-lg可改变button大小，添加.btn-info、
+            .btn-success等可改变button颜色，添加.btn-rounded、.btn-pill改变button样式。
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>风格</legend>
+        </fieldset>
+        <p>六种按钮风格：不添加类、.btn-info、.btn-success、.btn-warning、.btn-danger、.btn-disabled。</p>
+        <div class="row">
+            <div class="tab-nav-card">
+                <div class="tab-title">
+                    <ul>
+                        <li class="active" data-id="effect">效果</li>
+                        <li data-id="code">代码</li>
+                    </ul>
+                </div>
+                <div class="tab-content" style="height: 130px;">
+                    <div class="tab-item" data-target="effect">
+                        <a class="btn">默认按钮</a>
+                        <a class="btn btn-info">详情按钮</a>
+                        <a class="btn btn-success">成功按钮</a>
+                        <a class="btn btn-warning">警告按钮</a>
+                        <a class="btn btn-danger">危险按钮</a>
+                        <a class="btn btn-disabled">禁用按钮</a>
+                    </div>
+                    <div class="tab-item" data-target="code">
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">button代码示例</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <a class="btn">默认按钮</a>
+                                <a class="btn btn-info">详情按钮</a>
+                                <a class="btn btn-success">成功按钮</a>
+                                <a class="btn btn-warning">警告按钮</a>
+                                <a class="btn btn-danger">危险按钮</a>
+                                <a class="btn btn-disabled">禁用按钮</a>
+                            </div>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>尺寸</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>类名</th>
+                    <th>说明</th>
+                    <th style="width: 50%">效果展示</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>-</td>
+                    <td>默认大小</td>
+                    <td>
+                        <div class="row">
+                            <div class="tab-nav-card">
+                                <div class="tab-title">
+                                    <ul>
+                                        <li class="active" data-id="effect">效果</li>
+                                        <li data-id="code">代码</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" style="height: 130px;">
+                                    <div class="tab-item" data-target="effect">
+                                        <a class="btn">默认按钮</a>
+                                        <a class="btn btn-info">详情按钮</a>
+                                        <a class="btn btn-success">成功按钮</a>
+                                        <a class="btn btn-warning">警告按钮</a>
+                                        <a class="btn btn-danger">危险按钮</a>
+                                        <a class="btn btn-disabled">禁用按钮</a>
+                                    </div>
+                                    <div class="tab-item" data-target="code">
+                                        <code class="msunui-code" data-escape="true">
+                                            <div class="msunui-code-title">
+                                                <span class="msunui-text">button代码示例</span>
+                                            </div>
+                                            <div class="msunui-code-content">
+                                                <a class="btn">默认按钮</a>
+                                                <a class="btn btn-info">详情按钮</a>
+                                                <a class="btn btn-success">成功按钮</a>
+                                                <a class="btn btn-warning">警告按钮</a>
+                                                <a class="btn btn-danger">危险按钮</a>
+                                                <a class="btn btn-disabled">禁用按钮</a>
+                                            </div>
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.btn-sm</td>
+                    <td>较小类型</td>
+                    <td>
+                        <div class="row">
+                            <div class="tab-nav-card">
+                                <div class="tab-title">
+                                    <ul>
+                                        <li class="active" data-id="effect">效果</li>
+                                        <li data-id="code">代码</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" style="height: 130px;">
+                                    <div class="tab-item" data-target="effect">
+                                        <a class="btn-sm">默认按钮</a>
+                                        <a class="btn-sm btn-info">详情按钮</a>
+                                        <a class="btn-sm btn-success">成功按钮</a>
+                                        <a class="btn-sm btn-warning">警告按钮</a>
+                                        <a class="btn-sm btn-danger">危险按钮</a>
+                                        <a class="btn-sm btn-disabled">禁用按钮</a>
+                                    </div>
+                                    <div class="tab-item" data-target="code">
+                                        <code class="msunui-code" data-escape="true">
+                                            <div class="msunui-code-title">
+                                                <span class="msunui-text">button代码示例</span>
+                                            </div>
+                                            <div class="msunui-code-content">
+                                                <a class="btn-sm">默认按钮</a>
+                                                <a class="btn-sm btn-info">详情按钮</a>
+                                                <a class="btn-sm btn-success">成功按钮</a>
+                                                <a class="btn-sm btn-warning">警告按钮</a>
+                                                <a class="btn-sm btn-danger">危险按钮</a>
+                                                <a class="btn-sm btn-disabled">禁用按钮</a>
+                                            </div>
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.btn-lg</td>
+                    <td>较大类型</td>
+                    <td>
+                        <div class="row">
+                            <div class="tab-nav-card">
+                                <div class="tab-title">
+                                    <ul>
+                                        <li class="active" data-id="effect">效果</li>
+                                        <li data-id="code">代码</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" style="height: 130px;">
+                                    <div class="tab-item" data-target="effect">
+                                        <a class="btn-lg">默认按钮</a>
+                                        <a class="btn-lg btn-info">详情按钮</a>
+                                        <a class="btn-lg btn-success">成功按钮</a>
+                                        <a class="btn-lg btn-warning">警告按钮</a>
+                                        <a class="btn-lg btn-danger">危险按钮</a>
+                                        <a class="btn-lg btn-disabled">禁用按钮</a>
+                                    </div>
+                                    <div class="tab-item" data-target="code">
+                                        <code class="msunui-code" data-escape="true">
+                                            <div class="msunui-code-title">
+                                                <span class="msunui-text">button代码示例</span>
+                                            </div>
+                                            <div class="msunui-code-content">
+                                                <a class="btn-lg">默认按钮</a>
+                                                <a class="btn-lg btn-info">详情按钮</a>
+                                                <a class="btn-lg btn-success">成功按钮</a>
+                                                <a class="btn-lg btn-warning">警告按钮</a>
+                                                <a class="btn-lg btn-danger">危险按钮</a>
+                                                <a class="btn-lg btn-disabled">禁用按钮</a>
+                                            </div>
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>多样式按钮</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>类名</th>
+                    <th>说明</th>
+                    <th style="width: 50%">效果展示</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>-</td>
+                    <td>默认样式</td>
+                    <td>
+                        <div class="row">
+                            <div class="tab-nav-card">
+                                <div class="tab-title">
+                                    <ul>
+                                        <li class="active" data-id="effect">效果</li>
+                                        <li data-id="code">代码</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" style="height: 130px;">
+                                    <div class="tab-item" data-target="effect">
+                                        <a class="btn">默认按钮</a>
+                                        <a class="btn btn-info">详情按钮</a>
+                                        <a class="btn btn-success">成功按钮</a>
+                                        <a class="btn btn-warning">警告按钮</a>
+                                        <a class="btn btn-danger">危险按钮</a>
+                                        <a class="btn btn-disabled">禁用按钮</a>
+                                    </div>
+                                    <div class="tab-item" data-target="code">
+                                        <code class="msunui-code" data-escape="true">
+                                            <div class="msunui-code-title">
+                                                <span class="msunui-text">button代码示例</span>
+                                            </div>
+                                            <div class="msunui-code-content">
+                                                <a class="btn">默认按钮</a>
+                                                <a class="btn btn-info">详情按钮</a>
+                                                <a class="btn btn-success">成功按钮</a>
+                                                <a class="btn btn-warning">警告按钮</a>
+                                                <a class="btn btn-danger">危险按钮</a>
+                                                <a class="btn btn-disabled">禁用按钮</a>
+                                            </div>
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.btn-rounded</td>
+                    <td>圆角样式</td>
+                    <td>
+                        <div class="row">
+                            <div class="tab-nav-card">
+                                <div class="tab-title">
+                                    <ul>
+                                        <li class="active" data-id="effect">效果</li>
+                                        <li data-id="code">代码</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" style="height: 130px;">
+                                    <div class="tab-item" data-target="effect">
+                                        <a class="btn btn-rounded">默认按钮</a>
+                                        <a class="btn btn-info btn-rounded">详情按钮</a>
+                                        <a class="btn btn-success btn-rounded">成功按钮</a>
+                                        <a class="btn btn-warning btn-rounded">警告按钮</a>
+                                        <a class="btn btn-danger btn-rounded">危险按钮</a>
+                                        <a class="btn btn-disabled btn-rounded">禁用按钮</a>
+                                    </div>
+                                    <div class="tab-item" data-target="code">
+                                        <code class="msunui-code" data-escape="true">
+                                            <div class="msunui-code-title">
+                                                <span class="msunui-text">button代码示例</span>
+                                            </div>
+                                            <div class="msunui-code-content">
+                                                <a class="btn btn-rounded">默认按钮</a>
+                                                <a class="btn btn-info btn-rounded">详情按钮</a>
+                                                <a class="btn btn-success btn-rounded">成功按钮</a>
+                                                <a class="btn btn-warning btn-rounded">警告按钮</a>
+                                                <a class="btn btn-danger btn-rounded">危险按钮</a>
+                                                <a class="btn btn-disabled btn-rounded">禁用按钮</a>
+                                            </div>
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.btn-pill</td>
+                    <td>胶囊样式</td>
+                    <td>
+                        <div class="row">
+                            <div class="tab-nav-card">
+                                <div class="tab-title">
+                                    <ul>
+                                        <li class="active" data-id="effect">效果</li>
+                                        <li data-id="code">代码</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content" style="height: 130px;">
+                                    <div class="tab-item" data-target="effect">
+                                        <a class="btn btn-pill">默认按钮</a>
+                                        <a class="btn btn-info btn-pill">详情按钮</a>
+                                        <a class="btn btn-success btn-pill">成功按钮</a>
+                                        <a class="btn btn-warning btn-pill">警告按钮</a>
+                                        <a class="btn btn-danger btn-pill">危险按钮</a>
+                                        <a class="btn btn-disabled btn-pill">禁用按钮</a>
+                                    </div>
+                                    <div class="tab-item" data-target="code">
+                                        <code class="msunui-code" data-escape="true">
+                                            <div class="msunui-code-title">
+                                                <span class="msunui-text">button代码示例</span>
+                                            </div>
+                                            <div class="msunui-code-content">
+                                                <a class="btn btn-pill">默认按钮</a>
+                                                <a class="btn btn-info btn-pill">详情按钮</a>
+                                                <a class="btn btn-success btn-pill">成功按钮</a>
+                                                <a class="btn btn-warning btn-pill">警告按钮</a>
+                                                <a class="btn btn-danger btn-pill">危险按钮</a>
+                                                <a class="btn btn-disabled btn-pill">禁用按钮</a>
+                                            </div>
+                                        </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h1>按钮组 Button-Group</h1>
+        <blockquote class="msunui-quote-bg">
+            一组按钮，父元素通过追加.btn-group，子元素添加.btn-item可完成按钮组的渲染,子元素添加.btn-active表示默认激活。
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>风格</legend>
+        </fieldset>
+        <p>四种按钮风格：.btn-group、.btn-group-success、.btn-group-warning、.btn-group-danger。</p>
+        <div class="row">
+            <div class="tab-nav">
+                <div class="tab-title">
+                    <ul>
+                        <li class="active" data-id="effect">效果</li>
+                        <li data-id="code">代码</li>
+                    </ul>
+                </div>
+                <div class="tab-content"  style="height: 360px">
+                    <div class="tab-item" data-target="effect">
+                        <div class="btn-group">
+                            <a class="btn-item btn-active">全部</a>
+                            <a class="btn-item">住院</a>
+                            <a class="btn-item">门诊</a>
+                        </div>
+                        <div class="btn-group btn-group-success">
+                            <a class="btn-item btn-active">全部</a>
+                            <a class="btn-item">住院</a>
+                            <a class="btn-item">门诊</a>
+                        </div>
+                        <div class="btn-group btn-group-warning">
+                            <a class="btn-item btn-active">全部</a>
+                            <a class="btn-item">住院</a>
+                            <a class="btn-item">门诊</a>
+                        </div>
+                        <div class="btn-group btn-group-danger">
+                            <a class="btn-item btn-active">全部</a>
+                            <a class="btn-item">住院</a>
+                            <a class="btn-item">门诊</a>
+                        </div>
+                    </div>
+                    <div class="tab-item" data-target="code">
+                        <code class="msunui-code" data-escape="true">
+                            <div class="msunui-code-title">
+                                <span class="msunui-text">button-group代码示例</span>
+                            </div>
+                            <div class="msunui-code-content">
+                                <div class="btn-group">
+                                    <a class="btn-item btn-active">全部</a>
+                                    <a class="btn-item">住院</a>
+                                    <a class="btn-item">门诊</a>
+                                </div>
+                                <div class="btn-group btn-group-success">
+                                    <a class="btn-item btn-active">全部</a>
+                                    <a class="btn-item">住院</a>
+                                    <a class="btn-item">门诊</a>
+                                </div>
+                                <div class="btn-group btn-group-warning">
+                                    <a class="btn-item btn-active">全部</a>
+                                    <a class="btn-item">住院</a>
+                                    <a class="btn-item">门诊</a>
+                                </div>
+                                <div class="btn-group btn-group-danger">
+                                    <a class="btn-item btn-active">全部</a>
+                                    <a class="btn-item">住院</a>
+                                    <a class="btn-item">门诊</a>
+                                </div>
+                            </div>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>样式</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>类名</th>
+                    <th>说明</th>
+                    <th style="width: 50%">效果展示</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>-</td>
+                    <td>默认样式</td>
+                    <td>
+                        <div class="tab-nav-card">
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active" data-id="effect">效果</li>
+                                    <li data-id="code">代码</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content"  style="height: 360px">
+                                <div class="tab-item" data-target="effect">
+                                    <div class="btn-group">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-success">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-warning">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-danger">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                </div>
+                                <div class="tab-item" data-target="code">
+                                    <code class="msunui-code" data-escape="true">
+                                        <div class="msunui-code-title">
+                                            <span class="msunui-text">button-group代码示例</span>
+                                        </div>
+                                        <div class="msunui-code-content">
+                                            <div class="btn-group">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-success">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-warning">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-danger">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                        </div>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.btn-group-rounded</td>
+                    <td>圆角样式</td>
+                    <td>
+                        <div class="tab-nav-card">
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active" data-id="effect">效果</li>
+                                    <li data-id="code">代码</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content"  style="height: 360px">
+                                <div class="tab-item" data-target="effect">
+                                    <div class="btn-group btn-group-rounded">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-success btn-group-rounded">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-warning btn-group-rounded">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-danger btn-group-rounded">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                </div>
+                                <div class="tab-item" data-target="code">
+                                    <code class="msunui-code" data-escape="true">
+                                        <div class="msunui-code-title">
+                                            <span class="msunui-text">button-group代码示例</span>
+                                        </div>
+                                        <div class="msunui-code-content">
+                                            <div class="btn-group btn-group-rounded">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-success btn-group-rounded">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-warning btn-group-rounded">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-danger btn-group-rounded">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                        </div>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>.btn-group-pill</td>
+                    <td>胶囊样式</td>
+                    <td>
+                        <div class="tab-nav-card">
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active" data-id="effect">效果</li>
+                                    <li data-id="code">代码</li>
+                                </ul>
+                            </div>
+                            <div class="tab-content"  style="height: 360px">
+                                <div class="tab-item" data-target="effect">
+                                    <div class="btn-group btn-group-pill">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-success btn-group-pill">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-warning btn-group-pill">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                    <div class="btn-group btn-group-danger btn-group-pill">
+                                        <a class="btn-item btn-active">全部</a>
+                                        <a class="btn-item">住院</a>
+                                        <a class="btn-item">门诊</a>
+                                    </div>
+                                </div>
+                                <div class="tab-item" data-target="code">
+                                    <code class="msunui-code" data-escape="true">
+                                        <div class="msunui-code-title">
+                                            <span class="msunui-text">button-group代码示例</span>
+                                        </div>
+                                        <div class="msunui-code-content">
+                                            <div class="btn-group btn-group-pill">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-success btn-group-pill">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-warning btn-group-pill">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                            <div class="btn-group btn-group-danger btn-group-pill">
+                                                <a class="btn-item btn-active">全部</a>
+                                                <a class="btn-item">住院</a>
+                                                <a class="btn-item">门诊</a>
+                                            </div>
+                                        </div>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .structure ol{
+            list-style: none !important;
+            margin-left:0 !important;
+            padding:5px 0 5px 20px !important;
+        }
+        .structure ol li{
+            font-size: 16px !important;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <fieldset class="msunui-fieldset">
+            <legend>使用说明</legend>
+        </fieldset>
+        <blockquote class="msunui-quote-bg">
+            本框架目前兼容谷歌等高速浏览器及IE8（IE8标准文档模式,不支持混杂模式）
+        </blockquote>
+        <p>推荐使用以下页面模板</p>
+        <code class="msunui-code" data-escape="false">
+            <div class="msunui-code-title">
+                <span class="msunui-text">html模板</span>
+            </div>
+            <div class="msunui-code-content">
+                <ol>
+                    <li>&lt;!DOCTYPE html&gt;&lt;!-- 此处可决定在IE8下是否以标准模式渲染页面，否则使用混杂模式渲染。文档声明应放在页面的第一行 --></li>
+                    <li>&lt;html lang=&quot;en&quot;&gt;</li>
+                    <li>&lt;head&gt;</li>
+                    <li>    &lt;meta charset=&quot;UTF-8&quot;&gt;</li>
+                    <li>    &lt;title&gt;&lt;/title&gt;</li>
+                    <li>    &lt;!-- 引入msunui.min.css --&gt;</li>
+                    <li>&lt;/head&gt;</li>
+                    <li>&lt;body&gt;</li>
+                    <li>    &lt;!-- 页面底部引入msunui.min.js --&gt;</li>
+                    <li>&lt;/body&gt;</li>
+                    <li>&lt;/html&gt;</li>
+                </ol>
+            </div>
+        </code>
+        <fieldset class="msunui-fieldset">
+            <legend>代码结构</legend>
+        </fieldset>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">代码结构</span>
+            </div>
+            <div class="msunui-code-content structure">
+                css
+                    msunui.min.css
+                js
+                    msunui.min.js
+                img
+                    loaging.gif
+                    logo.png
+                fonts
+                    相关字体文件
+            </div>
+        </code>
+        <blockquote class="msunui-quote-bg">
+            注：本框架已集成jQuery1.11.3,无需重新引入jQuery
+        </blockquote>
+    </div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+</body>
+</html>

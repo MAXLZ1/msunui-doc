@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+<body>
+<div class="container doc">
+    <h1>上传组件 Uploader</h1>
+    <blockquote class="msunui-quote-bg">
+        支持多文件上传与单文件上传。该组件不支持IE9及IE9以下的低版本浏览器。<i style="color: red">注:上传成功需要返回json数据</i>
+    </blockquote>
+    <fieldset class="msunui-fieldset">
+        <legend>使用示例</legend>
+    </fieldset>
+    <div class="row">
+        <div class="tab-nav-terse">
+            <div class="tab-title">
+                <ul>
+                    <li class="active" data-id="effect">效果</li>
+                    <li data-id="code">代码</li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-item" data-target="effect">
+                    <p><a class="btn btn-success" id="single">单文件上传</a></p>
+                    <p><a class="btn btn-success" id="more">文件列表上传</a></p>
+                    <p><a class="btn btn-success" id="type">文件类型限制(图片)</a></p>
+                    <p><a class="btn btn-success" id="png">文件类型限制(png)</a></p>
+                    <p><a class="btn btn-success" id="size">文件大小限制</a></p>
+                </div>
+                <div class="tab-item" data-target="code">
+                    <code class="msunui-code" data-escape="true">
+                        <div class="msunui-code-title" >
+                            <span class="msunui-text">上传code</span>
+                        </div>
+                        <div class="msunui-code-content">
+                            <p><a class="btn btn-success" id="upload1">单文件上传</a></p>
+                            <p><a class="btn btn-success" id="upload2">文件列表上传</a></p>
+                            <script>
+                                var upload1 = new Uploader({
+                                    elem:"#upload1",
+                                    name:"file",
+                                    mode:"one",
+                                    url:"XXX",
+                                    size:100
+                                });
+                                var upload2 = new Uploader({
+                                    elem: "#upload2",
+                                    name: "file",
+                                    mode: "more",
+                                    multiple: true,
+                                    url: "XXX",
+                                    size: 100
+                                });
+                            </script>
+                        </div>
+                    </code>
+                </div>
+            </div>
+        </div>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>构造器参数说明(new Uploader(obj))</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>参数名</th>
+                <th>参数类型</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>elem</td>
+                <td>String/JQueryDom</td>
+                <td>配置挂载节点</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>字段名</td>
+            </tr>
+            <tr>
+                <td>mode</td>
+                <td>
+                    <p>String</p>
+                    <p>可选值：one/more</p>
+                </td>
+                <td>上传模式:one为单文件上传。more可同时上传多个文件</td>
+            </tr>
+            <tr>
+                <td>autoUpload</td>
+                <td>Boolean,默认false</td>
+                <td>是否开启自动上传，只对单文件上传模式起作用，对于多文件上传该值为false</td>
+            </tr>
+            <tr>
+                <td>multiple</td>
+                <td>Boolean</td>
+                <td>是否允许同时选择多个文件</td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td>
+                    <p>String</p>
+                    <p>可选值："files","image","audio","video"</p>
+                    <p>默认值为"files"</p>
+                </td>
+                <td>允许上传文件类型</td>
+            </tr>
+            <tr>
+                <td>suffix</td>
+                <td>String</td>
+                <td>上传文件后缀名限制</td>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>Number</td>
+                <td>上传文件大小限制，单位kb</td>
+            </tr>
+            <tr>
+                <td>number</td>
+                <td>Number</td>
+                <td>上传文件数量限制</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>String</td>
+                <td>上传接口</td>
+            </tr>
+            <tr>
+                <td>data</td>
+                <td>Object</td>
+                <td>上传额外参数</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>开放接口</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>方法名</th>
+                <th>参数</th>
+                <th>说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>init</td>
+                <td>-</td>
+                <td>初始化，一般不需要使用。</td>
+            </tr>
+            <tr>
+                <td>on</td>
+                <td>
+                    <p>eventType:事件类型，参考<a class="blue" href="#eventType">事件类型</a></p>
+                    <p>callback:回调函数</p>
+                </td>
+                <td>绑定上传事件</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset" id="eventType">
+        <legend>事件类型</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>事件名</th>
+                <th>事件说明</th>
+                <th>回调说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>uploadBefore</td>
+                <td>文件上传前触发</td>
+                <td>
+                    <p>callback(obj)</p>
+                    <p>obj:Array,包含上传的所有文件</p>
+                </td>
+            </tr>
+            <tr>
+                <td>uploadSuccess</td>
+                <td>文件上传成功触发</td>
+                <td>
+                    <p>callback(obj)</p>
+                    <p>obj:Array,上传成功的文件</p>
+                </td>
+            </tr>
+            <tr>
+                <td>uploadFail</td>
+                <td>文件上传失败触发</td>
+                <td>
+                    <p>callback(obj)</p>
+                    <p>Object:Array,上传失败的文件</p>
+                </td>
+            </tr>
+            <tr>
+                <td>uploadComplete</td>
+                <td>文件上传完成触发（无论成功失败）</td>
+                <td>
+                    <p>callback(obj)</p>
+                    <p>obj:上传接口返回数据</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script>
+    var upload3 = new Uploader({
+        elem:"#single",
+        name:"file",
+        mode:"one",
+        url:"http://10.68.137.76:8888/msunui-api/uploader/test",
+        size:100
+    });
+    var upload4 = new Uploader({
+        elem:"#more",
+        name:"file",
+        mode:"more",
+        multiple:true,
+        url:"http://10.68.137.76:8888/msunui-api/uploader/test",
+        size:100
+    });
+    upload4.on("uploadSuccess",function (file) {
+        console.log("文件上传成功");
+        console.log(file);
+    });
+    upload4.on("uploadFail",function(file){
+        console.log("文件上传失败");
+        console.log(file);
+    });
+    upload4.on("uploadComplete",function(file){
+        console.log("文件上传完成");
+        console.log(file);
+    });
+    var upload5 = new Uploader({
+        elem:"#type",
+        name:"file",
+        mode:"more",
+        type:"image",
+        multiple:true,
+        url:"http://10.68.137.76:8888/msunui-api/uploader/test"
+    });
+    var upload6 = new Uploader({
+        elem:"#size",
+        name:"file",
+        mode:"more",
+        multiple:true,
+        url:"http://10.68.137.76:8888/msunui-api/uploader/test",
+        size:100
+    });
+    var upload7 = new Uploader({
+        elem:"#png",
+        name:"file",
+        mode:"more",
+        suffix:"png",
+        multiple:true,
+        url:"http://10.68.137.76:8888/msunui-api/uploader/test"
+    });
+</script>
+</body>
+</html>

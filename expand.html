@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        p{
+            text-indent: 2rem;
+        }
+        .red{
+            color: #ff0000;
+        }
+        .blue{
+            color: #3896fe;
+        }
+        h3{
+            font-size: 16px;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1>拓展框架</h1>
+        <blockquote class="msunui-quote-bg">
+            框架涉及技术：webpack+node+JQuery+Less+ESLint.本框架使用模块化方式开发，每一个组件都是一个独立模块，开发者可单独拓展一个独立模块，后续通过webpack整合打包为单个资源文件。
+        </blockquote>
+        <fieldset class="msunui-fieldset">
+            <legend>一个组件的开发流程</legend>
+        </fieldset>
+        <div class="row">
+            <div id="steps"></div>
+        </div>
+        <fieldset class="msunui-fieldset">
+            <legend>关于模块化方案(CMD、AMD、CommonJS、ES6)</legend>
+        </fieldset>
+        <p>关于模块化的方案选择主要有：CMD、AMD、CommonJS、ES6几种规范，本框架选用CommonJS规范进行模块化开发，这里不推荐使用ES6语法，因为框架未配置babel,无法将ES6编译为ES5，所以会导致IE8等一些低级浏览器报错。</p>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">CommonJS示例</span>
+            </div>
+            <div class="msunui-code-content">
+                function DatePicker(){}
+                // 导出模块，导出后会在我们框架的入口文件中引入该文件
+                module.exports = {
+                    // 导出时提供mode属性，方便框架调用
+                    mode:DatePicker,
+                    //  methods可导出一些可能在入口处会执行的一些方法
+                    methods:Object
+                };
+            </div>
+        </code>
+        <fieldset class="msunui-fieldset">
+            <legend>关于组件实现方案</legend>
+        </fieldset>
+        <p>实现一个组件有多种选择方案，你可以使用面向对象的思想进行封装一个组件，也可以通过拓展JQuery的形式封装一个插件，下面是两种方法的示例</p>
+        <p>一、面向对象形式</p>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">面向对象形式组件开发示例</span>
+            </div>
+            <div class="msunui-code-content">
+                // 定义构造器
+                var index = 0; // 组件唯一标识符
+                function DatePicker(options){
+                    index++;
+                    var defaults = {
+                        type:TYPE_ARR[0],
+                        firstDayOfWeek:0
+                    };
+                    this.options = $.extend({},defaults,options);
+                    this.index = index;
+                    this.init();
+                }
+                // 接口定义
+                DatePicker.prototype.init = function(){};
+                DatePicker.prototype.on = function(){};
+                // 定义私有方法
+                var methods = {
+                    ...
+                };
+                // 导出
+                module.exports = {
+                    mode : DatePicker
+                };
+            </div>
+        </code>
+        <p>二、拓展JQuery形式</p>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">拓展JQuery形式开发组件示例</span>
+            </div>
+            <div class="msunui-code-content">
+                ;(function($,window,docuemnt,undefined){
+                    $.fn.customScroll = function(options){
+                        reutrn this.each(function(){
+                            ...
+                        });
+                    };
+                })(jQuery,window,document)
+            </div>
+        </code>
+        <fieldset class="msunui-fieldset">
+            <legend>关于组件的事件绑定</legend>
+        </fieldset>
+        <div class="row">
+            <p style="text-indent: 0">对于组件的事件拓展，注意以下几点：</p>
+            <p>1.使用面向对象开发的组件，为了风格统一，尽量使用on接口定义事件。（如何用on注册事件参考<a class="blue" href="#event">事件的管理</a>）</p>
+            <p>2.使用jquery插件形式开发的组件，对于事件的处理，可以使用参数的形式传入，在需要执行事件函数的时候调用一下即可</p>
+        </div>
+        <fieldset class="msunui-fieldset" id="event">
+            <legend>事件的管理</legend>
+        </fieldset>
+        <div class="row">
+            <h3>一、事件管理器</h3>
+            <p style="text-indent: 0">本框架内置事件管理器Event，其提供两个接口供开发者使用：</p>
+            <p>1.onevent(modeName,uuid,events,callback):注册事件。modeName(模块名)、uuid(唯一标识)、events(事件名)、callback(回调函数)</p>
+            <p>2.done(modeName,uuid,events,scope,...args):执行事件。modeName(模块名)、uuid(唯一标识)、events(事件名)、scope(作用域，即this指向)、...args(回调参数)</p>
+            <p style="text-indent: 0">通过调用Event.xxx可调用以上两个接口。</p>
+            <p class="red" style="text-indent: 0">注*：Event事件管理器只能在框架内部使用，外部无法访问。</p>
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">事件管理器使用示例</span>
+                </div>
+                <div class="msunui-code-content">
+                    DatePicker.prototype.on = function(eventType,callback){
+                        $.inArray(eventType,EVENT_TYPE_ARR) !== -1 ?
+                            Event.onevent(MODE_NAME,this.index,eventType,callback) :
+                            $.error("未定义的事件类型");
+                        return this;
+                    };
+                    this.find(".msunui-date-header .icon").off("click").on("click",function(){
+                        ...;
+                        Event.done(MODE_NAME,dateId,"change",this,datePicker.options.value);
+                    });
+                </div>
+            </code>
+            <h3>二、观察者模式</h3>
+            <p style="text-indent: 0">除了使用Event进行事件管理还可以使用观察者模式进行事件管理。如下：</p>
+            <p style="text-indent: 0">框架提供一个观察者对象（DesignPattern.Observer），该对象包含三个方法：</p>
+            <p>1.register(type,fn)：注册</p>
+            <p>2.release(type,args)：发布</p>
+            <p>3.remove(type,fn)：注销</p>
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">观察者模式使用示例</span>
+                </div>
+                <div class="msunui-code-content">
+                    Tab.prototype.on = function(eventType,callback){
+                        DesignPattern.Observer.register("tabNavClick",function(dom){
+                            callback.call(that,dom.args);
+                        });
+                    };
+                    $(that).find(".tab-title ul li").on("click",function(){
+                        ...;
+                        DesignPattern.Observer.release("tabNavClick",{title:_this,content:$target[0]});
+                    });
+                </div>
+            </code>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/msunui.min.js"></script>
+    <script>
+        var data = [
+            {title:"步骤一：布局DOM结构",desc:"该步骤决定组件的整个布局，方便js中html模板的比编写",status:1},
+            {title:"步骤二：编写样式",desc:"该步骤决定组件样式，该步骤完成后一个静态组件基本完成，接下来就是变为动态组件",status:1},
+            {title:"步骤三：提取可配置项",desc:"该步骤提取出一些配置项，如日期组件中需要提取出的配置项有：触发dom、日期类型、日期格式等配置项",status:1},
+            {title:"步骤四：编写JavaScript",desc:"该步骤就是将前三步所做的工作整合，使组件便于使用及提高了组件的复用性",status:1},
+            {title:"步骤五：测试",desc:"测试相关BUG并解决",status:1},
+            {title:"步骤六：整合进框架",desc:"整合进框架",status:1}
+        ];
+        new Steps({
+            elem:'#steps',
+            type:"block",
+            space:220,
+            data:data
+        });
+    </script>
+</body>
+</html>

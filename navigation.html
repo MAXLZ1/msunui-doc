@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./css/msunui.min.css" rel="stylesheet">
+    <style>
+        .nav-vertical{
+            float: left;
+            margin-left: 20px;
+        }
+        #test1,#test2{
+            margin-bottom: 20px;
+        }
+        .row{
+            margin-top: 20px;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <h1 id="navigation">导航 Navigation</h1>
+        <blockquote class="msunui-quote-bg">
+            导航组件分为水平导航(添加.nav)与垂直导航(添加.nav、.nav-vertical)。
+        </blockquote>
+        <fieldset class="msunui-fieldset" id="zero">
+            <legend>开放接口</legend>
+        </fieldset>
+        <div class="row">
+            <table class="table table-ordinary" data-align="left">
+                <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>参数类型</th>
+                    <th>返回值</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>init()</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>初始化，一般不使用</td>
+                </tr>
+                <tr>
+                    <td>on(eventType,callback)</td>
+                    <td>
+                        <p>eventType:事件类型，可选值：click</p>
+                        <p>callback:回调函数</p>
+                    </td>
+                    <td>返回当前实例</td>
+                    <td>绑定事件</td>
+                </tr>
+                <tr>
+                    <td>Navigation.reloadAnchorNav()</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>锚导航重载</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <fieldset class="msunui-fieldset" id="first">
+            <legend>水平导航</legend>
+        </fieldset>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">水平导航代码示例</span>
+            </div>
+            <div class="msunui-code-content">
+                <ul class="nav" id="demo1">
+                    <li class="nav-item">
+                        <a class="nav-text">选项一</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text">选项二</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text">选项三</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text">父选项</a>
+                        <ul class="nav-child">
+                            <li class="nav-child-item">
+                                <a class="nav-text">子选项1</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text">子选项2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <script type="text/javascript">
+                    new Navigation({
+                        elem:"#demo1"
+                    });
+                </script>
+            </div>
+        </code>
+        <div class="row">
+            <ul class="nav" id="test1">
+                <li class="nav-item">
+                    <a class="nav-text">布局</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">表单</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">其他</a>
+                    <ul class="nav-child">
+                        <li class="nav-child-item">
+                            <a class="nav-text">子选项</a>
+                        </li>
+                        <li class="nav-child-item">
+                            <a class="nav-text">子选项2</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav" id="test4">
+                <li class="nav-item">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-buju"></i>
+                        <span>布局</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-biaodan"></i>
+                        <span>表单</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-qita"></i>
+                        <span>其他</span>
+                    </a>
+                    <ul class="nav-child">
+                        <li class="nav-child-item">
+                            <a class="nav-text">子选项</a>
+                        </li>
+                        <li class="nav-child-item">
+                            <a class="nav-text">子选项2</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <fieldset class="msunui-fieldset" id="second">
+            <legend>垂直导航</legend>
+        </fieldset>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">水平导航代码示例</span>
+            </div>
+            <div class="msunui-code-content">
+                <ul class="nav nav-vertical" id="demo2">
+                    <li class="nav-item">
+                        <a class="nav-text">栅格</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text">表单</a>
+                    </li>
+                    <li class="nav-item nav-itemed">
+                        <a class="nav-text">组件</a>
+                        <ul class="nav-child">
+                            <li class="nav-child-item ">
+                                <a class="nav-text">表格</a>
+                                <ul class="nav-child">
+                                    <li class="nav-child-item">
+                                        <a class="nav-text">静态表格</a>
+                                        <ul class="nav-child">
+                                            <li class="nav-child-item">
+                                                <a class="nav-text">无边框表格</a>
+                                            </li>
+                                            <li class="nav-child-item">
+                                                <a class="nav-text">列边框表格</a>
+                                            </li>
+                                            <li class="nav-child-item">
+                                                <a class="nav-text">行边框表格</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text">弹层</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-text">其他</a>
+                        <ul class="nav-child">
+                            <li class="nav-child-item">
+                                <a class="nav-text">工具类</a>
+                            </li>
+                            <li class="nav-child-item">
+                                <a class="nav-text">正则库</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <script type="text/javascript">
+                    new Navigation({
+                        elem:"#demo2"
+                    });
+                </script>
+            </div>
+        </code>
+        <div class="row">
+            <ul class="nav nav-vertical" id="test2">
+                <li class="nav-item">
+                    <a class="nav-text">栅格</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">表单</a>
+                </li>
+                <li class="nav-item nav-itemed">
+                    <a class="nav-text">组件</a>
+                    <ul class="nav-child">
+                        <li class="nav-child-item ">
+                            <a class="nav-text">表格</a>
+                            <ul class="nav-child">
+                                <li class="nav-child-item">
+                                    <a class="nav-text">静态表格</a>
+                                    <ul class="nav-child">
+                                        <li class="nav-child-item">
+                                            <a class="nav-text">无边框表格</a>
+                                        </li>
+                                        <li class="nav-child-item">
+                                            <a class="nav-text">列边框表格</a>
+                                        </li>
+                                        <li class="nav-child-item">
+                                            <a class="nav-text">行边框表格</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-child-item">
+                            <a class="nav-text">弹层</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">其他</a>
+                    <ul class="nav-child">
+                        <li class="nav-child-item">
+                            <a class="nav-text">工具类</a>
+                        </li>
+                        <li class="nav-child-item">
+                            <a class="nav-text">正则库</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-vertical" id="test3">
+                <li class="nav-item">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-buju"></i>
+                        <span>布局</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-biaodan"></i>
+                        <span>表单</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-itemed">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-zujian"></i>
+                        <span>组件</span>
+                    </a>
+                    <ul class="nav-child">
+                        <li class="nav-child-item ">
+                            <a class="nav-text">表格</a>
+                            <ul class="nav-child">
+                                <li class="nav-child-item">
+                                    <a class="nav-text">静态表格</a>
+                                    <ul class="nav-child">
+                                        <li class="nav-child-item">
+                                            <a class="nav-text">无边框表格</a>
+                                        </li>
+                                        <li class="nav-child-item">
+                                            <a class="nav-text">列边框表格</a>
+                                        </li>
+                                        <li class="nav-child-item">
+                                            <a class="nav-text">行边框表格</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-child-item">
+                            <a class="nav-text">弹层</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-text">
+                        <i class="icon iconfont icon-qita"></i>
+                        <span>其他</span>
+                    </a>
+                    <ul class="nav-child">
+                        <li class="nav-child-item">
+                            <a class="nav-text">工具类</a>
+                        </li>
+                        <li class="nav-child-item">
+                            <a class="nav-text">正则库</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <fieldset class="msunui-fieldset" id="third">
+            <legend>导航事件</legend>
+        </fieldset>
+        <p>通过on方法向导航组件添加相关事件。</p>
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">导航事件代码示例</span>
+            </div>
+            <div class="msunui-code-content">
+                <script type="text/javascript">
+                    var nav = new Navigation({...});
+                    nav.on("click",function(dom){
+                        console.log(dom);   // 当前点击的DOM对象
+                    });
+                </script>
+            </div>
+        </code>
+        <fieldset class="msunui-fieldset" id="forth">
+            <legend>锚导航</legend>
+        </fieldset>
+        <div class="row">
+            <code class="msunui-code" data-escape="true">
+                <div class="msunui-code-title">
+                    <span class="msunui-text">导航事件代码示例</span>
+                </div>
+                <div class="msunui-code-content">
+                    <ul class="catalogue-nav" id="catalogue">
+                        <li>
+                            <a href="#navigation">
+                                <div class="catalogue-icon">
+                                    <div class="catalogue-circle"></div>
+                                </div>
+                                <span>导航 Navigation</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#zero">
+                                        <div class="catalogue-icon">
+                                            <div class="catalogue-circle"></div>
+                                        </div>
+                                        <span>开放接口</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#first">
+                                        <div class="catalogue-icon">
+                                            <div class="catalogue-circle"></div>
+                                        </div>
+                                        <span>水平导航</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#second">
+                                        <div class="catalogue-icon">
+                                            <div class="catalogue-circle"></div>
+                                        </div>
+                                        <span>垂直导航</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#third">
+                                        <div class="catalogue-icon">
+                                            <div class="catalogue-circle"></div>
+                                        </div>
+                                        <span>导航事件</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#forth">
+                                        <div class="catalogue-icon">
+                                            <div class="catalogue-circle"></div>
+                                        </div>
+                                        <span>锚导航</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </code>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/msunui.min.js"></script>
+    <script type="text/javascript">
+        new Navigation({
+            elem:"#test1"
+        });
+        new Navigation({
+            elem:"#test2"
+        });
+        new Navigation({
+            elem:"#test3"
+        });
+        new Navigation({
+            elem:"#test4"
+        });
+        var layer = new Layer();
+        layer.open({
+            title:"目录",
+            width:200,
+            height:300,
+            shade:false,
+            position:[200,30,"auto","auto"],
+            move:true,
+            content:$("#catalogue")
+        });
+    </script>
+</body>
+</html>

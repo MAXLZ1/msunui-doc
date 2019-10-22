@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+    <style>
+        #progress1,#progress2{
+            margin-top:20px;
+            width:50%;
+        }
+    </style>
+<body>
+<div class="container doc">
+    <h1>进度条 Progress</h1>
+    <blockquote class="msunui-quote-bg">
+        用来显示时间进度。
+    </blockquote>
+    <fieldset class="msunui-fieldset">
+        <legend>使用示例</legend>
+    </fieldset>
+    <div class="row">
+        <div id="progress1"></div>
+        <div id="progress2"></div>
+    </div>
+    <div class="row">
+        <code class="msunui-code" data-escape="true">
+            <div class="msunui-code-title">
+                <span class="msunui-text">进度条code</span>
+            </div>
+            <div class="msunui-code-content">
+                <div id="progressdemo1"></div>
+                <div id="progress2demo2"></div>
+                <script>
+                    new Progress({
+                        elem:"#progressdemo1",
+                        value:30
+                    });
+                    new Progress({
+                        elem:"#progress2demo2",
+                        value:80,
+                        showText:true,
+                        color:"#ff0000"
+                    });
+                </script>
+            </div>
+        </code>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>构造器参数说明(new Progress(obj))</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>参数类型</th>
+                <th>参数值</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>elem</td>
+                <td>String/JQueryDOM</td>
+                <td>-</td>
+                <td>进度条容器</td>
+            </tr>
+            <tr>
+                <td>max</td>
+                <td>Number</td>
+                <td>默认100</td>
+                <td>进度条最大值</td>
+            </tr>
+            <tr>
+                <td>value</td>
+                <td>Number</td>
+                <td>默认0</td>
+                <td>进度条进度值</td>
+            </tr>
+            <tr>
+                <td>showText</td>
+                <td>Boolean</td>
+                <td>默认false</td>
+                <td>是否显示进度值</td>
+            </tr>
+            <tr>
+                <td>color</td>
+                <td>String</td>
+                <td>默认"#3896fe"</td>
+                <td>配置进度条颜色</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <fieldset class="msunui-fieldset">
+        <legend>开放接口</legend>
+    </fieldset>
+    <div class="row">
+        <table class="table table-ordinary" data-align="left">
+            <thead>
+            <tr>
+                <th>方法名</th>
+                <th>参数</th>
+                <th>返回值</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>reload(value,max)</td>
+                <td>
+                    <p>value:Number,进度条的值</p>
+                    <p>max:Number,进度条最大值,若进度条最大值未发生变化可不选</p>
+                </td>
+                <td>返回当前实例</td>
+                <td>刷新进度条</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="./js/msunui.min.js"></script>
+<script>
+    new Progress({
+        elem:"#progress1",
+        value:30
+    });
+    new Progress({
+        elem:"#progress2",
+        value:50,
+        showText:true,
+        color:"#ff0000"
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/msunui.min.css">
+    <style>
+        .timer-shaft{
+            margin: 0 auto;
+        }
+        .doc p{
+            margin:3px 0;
+        }
+        .remove{
+            color: #ff0000;
+        }
+    </style>
+<body>
+    <div class="container doc">
+        <div class="timer-shaft">
+            <h2 class="timer-shaft-title">前端框架开发历程</h2>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2018年12月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">环境搭建</div>
+                    <p>搭建框架环境(基于webpack4),并集成jQuery1.11.3</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年1月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">更新日志</div>
+                    <p>【新增】添加事件管理器</p>
+                    <p>【新增】完成table组件的开发</p>
+                    <p>【新增】完成page组件的开发</p>
+                    <p>【新增】完成tab标签页的开发</p>
+                    <p>【新增】完成导航组件的开发</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年2月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">更新日志</div>
+                    <p>【新增】添加table组件加载效果</p>
+                    <p>【新增】添加栅格系统</p>
+                    <p>【新增】添加日期组件(支持日、周、月、季、年的选择)</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年3月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">更新日志</div>
+                    <p>【新增】丰富button风格样式</p>
+                    <p>【修改】重构Form组件</p>
+                    <p>【修改】修改layer组件相关</p>
+                    <p>【修改】调整部分代码块渲染存在问题</p>
+                    <p>【新增】添加树组件</p>
+                    <p>【新增】文件上传组件的开发（未支持IE8）</p>
+                    <p>【新增】集成easing.js动画库</p>
+                    <p>【新增】form组件添加表单重置方法</p>
+                    <p>【新增】Util类添加颜色的判断(isColor)</p>
+                    <p>【修改】修改IE8下iconfont图标不能显示问题</p>
+                    <p>【新增】针对老框架页面新增单屏页</p>
+                    <p>【修改】修改layer打开content时事件无法被被复制问题</p>
+                    <p>【修改】修改form.render有参时，将查询范围提升至整个DOM，不再是设置的elem中</p>
+                    <p>【新增】添加步骤条组件</p>
+                    <p>【修改】修改正则库中百分号的正则表达式</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年4月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">更新日志</div>
+                    <p>【新增】Table组件添加单元格编辑事件</p>
+                    <p>【新增】Table组件添加翻页之前是否需要保存被选中数据配置(saveSelect)</p>
+                    <p>【新增】Form组件中select添加带搜索框select，并支持键盘事件</p>
+                    <p>【修改】修改Table组件operate列回调函数</p>
+                    <p>【新增】添加下拉框树组件及下拉表格组件</p>
+                    <p>【新增】新增框架拓展说明</p>
+                    <p>【新增】时间轴添加时间段标题</p>
+                    <p>【新增】datePicker日期组件添加time、datetime两种类型</p>
+                    <p>【修改】日期组件修复done事件的触发时机</p>
+                    <p class="remove">【移除】日期暂时移除change事件</p>
+                    <p>【修改】修改树组件无法获取被选中节点的父节点数据</p>
+                    <p class="remove">【移除】移除树组件的selectData属性，使用getSelectData()接口替代</p>
+                    <p>【优化】导出的css文件（msunui.min.css）大小由99kb减小至57kb</p>
+                    <p>【优化】导出的js进行混淆压缩，文件体积由645kb减小至220kb</p>
+                    <p>【修改】解决IE8下下拉树及下拉表格无法显示问题</p>
+                    <p>【修改】解决table组件saveSelect参数对数据表格全选事件的影响问题</p>
+                    <p>【修改】解决table组件saveSelect=true情况下，翻页后选中状态消失问题</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年5月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">更新日志</div>
+                    <p>【修改】修改上传组件文件名不支持中文及其他特殊字符问题</p>
+                    <p>【修改】解决form组件中select使用回车选中时无法触发事件问题</p>
+                    <p>【修改】解决table组件以url获取数据方式分页后无法保存选中数据问题</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.1.1</div>
+                    <p>【修改】修改table组件reload事件触发时机，并解决回调参数返回不正常问题</p>
+                    <p>【新增】table组件添加loaded加载完成事件</p>
+                    <p>【新增】添加Eslint代码规范</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.1.2</div>
+                    <p>【修改】修改table初始化时数据顺序不正常问题</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.2.0</div>
+                    <p>【新增】新增下拉菜单组件</p>
+                    <p>【新增】新增提示组件</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.2.1</div>
+                    <p>【修改】修改表单中radio事件无法触发的问题</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年6月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.3.0</div>
+                    <p class="remove">【移除】移除table组件中saveSelect、uniqueField字段配置</p>
+                    <p>【修改】解决ie下table的跨域问题</p>
+                    <p>【新增】进度条组件增加刷新方法</p>
+                    <p>【修改】解决下拉树点击树节点后，点击空白处无法消失问题</p>
+                    <p>【修改】修改table重载后默认显示第一页</p>
+                    <p>【修改】修改表单重置将隐藏表单值重置</p>
+                    <p>【新增】Util工具类添加去除空格方法</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年7月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.3.1</div>
+                    <p>【新增】新增日期格式化工具方法，参考工具类页</p>
+                    <p>【新增】树组件添加叶子节点配置</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年8月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <div class="timer-shaft-item-title">V1.3.2</div>
+                    <p>【修改】修改tooltip位置计算问题</p>
+                    <p>【新增】新增msunui.version版本信息</p>
+                    <p>【修改】修改Tree组件中isLeaf为leaf属性。</p>
+                    <p>【新增】Tab组件添加refresh属性，控制tab页是否刷新</p>
+                    <p>【修改】修改Tab组件type='more'下点击关闭tab后，点击tab页出现空白页现象。</p>
+                    <p>【修改】更换加载logo</p>
+                    <p>【修改】解决表格全选后进行排序，全选按钮未被选中问题</p>
+                    <p>【修改】解决表格多列可编辑时，同时显示多个输入框问题</p>
+                </div>
+            </div>
+            <div class="timer-shaft-item">
+                <div class="timer-shaft-item-time">
+                    <span>2019年10月</span>
+                </div>
+                <div class="timer-shaft-item-content">
+                    <p>【上传组件】添加上传失败打印信息</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/msunui.min.js"></script>
+</body>
+</html>
