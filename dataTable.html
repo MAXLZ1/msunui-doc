@@ -337,6 +337,14 @@
                         </code>
                     </td>
                 </tr>
+                <tr>
+                    <td>noSelect</td>
+                    <td>Function</td>
+                    <td>-</td>
+                    <td>
+                        控制复选框是否被禁用，返回true则不可被选中。
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -405,7 +413,7 @@
                 </tr>
                 <tr>
                     <td>loaded</td>
-                    <td>表格完成渲染之后触发</td>
+                    <td>表格完成渲染之后触发(异步数据才会触发)</td>
                     <td>
                         callback(data);
                         <p>data:表格数据</p>
@@ -485,7 +493,11 @@
                             {id:34,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"}
                         ],
                         cols:[
-                            {type:"checkbox",fixed:"left"},
+                            {type:"checkbox",fixed:"left", noSelect: function(data) {
+                                return data.age === 11;
+                            }, callback: function(data) {
+                                return data.age === 23;
+                            }},
                             {field:"id",title:"ID",sort:true,},
                             {field:"name",title:"姓名",move:true},
                             {field:"school",title:"学校",width:150,hide:true},
@@ -530,29 +542,34 @@
     </div>
 <script type="text/javascript" src="./js/msunui.min.js"></script>
 <script type="text/javascript">
+    var data = [
+        {id:37,name:"小明",age:12,school:"XX高中",address:"山东省",desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字", checked: true},
+        {id:75,name:"小红",age:23,school:"XX大学",address:"北京市",desc:"XXX2", checked: true },
+        {id:18,name:"小明",age:15,school:"XX大学",address:"山西省",desc:"XXX3", checked: true},
+        {id:25,name:"小明",age:18,school:"XX高中",address:"山西省",desc:"XXX4", checked: false},
+        {id:1,name:"啊明",age:19,school:"XX高中",address:"山西省",desc:"XXX5", checked: true},
+        {id:77,name:"小明",age:11,school:"XX小学",address:"山西省",desc:"XXX6", checked: false},
+        {id:58,name:"小明",age:13,school:"XX初中",address:"山西省dsadasd",desc:"XXX7", checked: true},
+        {id:12,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8", checked: true},
+        {id:43,name:"小明",age:23,school:"XX高中",address:"山西省",desc:"XXX8", checked: false},
+        {id:54,name:"小明",age:25,school:"XX高中",address:"山西省",desc:"XXX8", checked: true},
+        {id:13,name:"小明",age:15,school:"XX高中",address:"山西省",desc:"XXX8", checked: true},
+        {id:56,name:"小明",age:2,school:"XX高中",address:"山西省",desc:"XXX8"},
+        {id:34,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8", checked: true}
+    ];
     var table = new Table({
         elem:"#test",
         page:true,
         height:300,
         //bgsort: true,
         // url:'http://10.68.137.76:8888/msunui-api/table/json',
-        data:[
-            {id:37,name:"小明",age:12,school:"XX高中",address:"山东省",desc:"这是一段很长的文字，这是一段很长的文字，这是一段很长的文字"},
-            {id:75,name:"小红",age:23,school:"XX大学",address:"北京市",desc:"XXX2"},
-            {id:18,name:"小明",age:15,school:"XX大学",address:"山西省",desc:"XXX3"},
-            {id:25,name:"小明",age:18,school:"XX高中",address:"山西省",desc:"XXX4"},
-            {id:1,name:"啊明",age:19,school:"XX高中",address:"山西省",desc:"XXX5"},
-            {id:77,name:"小明",age:11,school:"XX小学",address:"山西省",desc:"XXX6"},
-            {id:58,name:"小明",age:13,school:"XX初中",address:"山西省dsadasd",desc:"XXX7"},
-            {id:12,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"},
-            {id:43,name:"小明",age:23,school:"XX高中",address:"山西省",desc:"XXX8"},
-            {id:54,name:"小明",age:25,school:"XX高中",address:"山西省",desc:"XXX8"},
-            {id:13,name:"小明",age:15,school:"XX高中",address:"山西省",desc:"XXX8"},
-            {id:56,name:"小明",age:2,school:"XX高中",address:"山西省",desc:"XXX8"},
-            {id:34,name:"小明",age:14,school:"XX高中",address:"山西省",desc:"XXX8"}
-        ],
+        data: data,
         cols:[
-            {type:"checkbox",fixed:"left"},
+            {type:"checkbox",fixed:"left", noSelect: function(data) {
+                return data.age === 11;
+            }, callback: function(data) {
+                return data.age === 23;
+            }},
             {field:"id",title:"ID",sort:true,},
             {field:"name",title:"姓名",move:true, edit: 'text'},
             {field:"school",title:"学校",width:150,hide:true,edit: 'text'},
