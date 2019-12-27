@@ -5,7 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="./css/msunui.min.css">
     <style>
-        #progress1,#progress2{
+        #progress1,#progress2,#progressdemo3{
             margin-top:20px;
             width:50%;
         }
@@ -22,6 +22,8 @@
     <div class="row">
         <div id="progress1"></div>
         <div id="progress2"></div>
+        <div id="progressdemo3"></div>
+        <a class="btn btn-success btn-rounded" id="updateProgress" style="margin-top: 20px">刷新进度条</a>
     </div>
     <div class="row">
         <code class="msunui-code" data-escape="true">
@@ -31,6 +33,7 @@
             <div class="msunui-code-content">
                 <div id="progressdemo1"></div>
                 <div id="progress2demo2"></div>
+                <div id="progressdemo3"></div>
                 <script>
                     new Progress({
                         elem:"#progressdemo1",
@@ -41,6 +44,19 @@
                         value:80,
                         showText:true,
                         color:"#ff0000"
+                    });
+                    var progress = new Progress({
+                        elem:'#progressdemo3',
+                        max:100,
+                        value:40,
+                        showText:true,
+                        customColors: [
+                            {color: '#67C23A', percentage: 20},//绿色
+                            {color: '#F56C6C', percentage: 40},//红色      
+                            {color: '#E6A23C', percentage: 60},//橘黄色    
+                            {color: '#909399', percentage: 80},//灰色      
+                            {color: '#000', percentage: 100}   // 黑色  
+                        ]
                     });
                 </script>
             </div>
@@ -90,6 +106,12 @@
                 <td>默认"#3896fe"</td>
                 <td>配置进度条颜色</td>
             </tr>
+            <tr>
+                <td>customColors</td>
+                <td>Array</td>
+                <td>-</td>
+                <td>配置动态变换进度条的颜色按百分比显示</td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -126,11 +148,30 @@
         elem:"#progress1",
         value:30
     });
+
     new Progress({
         elem:"#progress2",
         value:50,
         showText:true,
         color:"#ff0000"
+    });
+
+    var progress = new Progress({
+        elem:'#progressdemo3',
+        max:100,
+        value:40,
+        showText:true,
+        customColors: [
+            {color: '#67C23A', percentage: 20},//绿色
+            {color: '#F56C6C', percentage: 40},//红色      
+            {color: '#E6A23C', percentage: 60},//橘黄色    
+            {color: '#909399', percentage: 80},//灰色      
+            {color: '#000', percentage: 100}   // 黑色  
+        ]
+    });
+
+    $('#updateProgress').on('click',function () {
+        progress.reload(700,1000);
     });
 </script>
 </body>

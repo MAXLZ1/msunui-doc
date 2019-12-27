@@ -68,5 +68,7 @@ nav.on("click",function(obj){
     var url = $(obj).attr("data-url"),
         id = $(obj).attr("data-id"),
         title = $(obj).children("span").length > 0 ? $(obj).children("span").text():$(obj).text();
-    if(url && id) tab.addItem({id:id,title:title,url:url});
+    if(url && id) {
+        tab.addItem({id:id,title:title,url:url});
+    }
 });
