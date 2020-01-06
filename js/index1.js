@@ -10,8 +10,6 @@ var tab = new Tab({
         {id:"welcome",title:"欢迎页",url:"welcome.html",close:false}
     ]
 });
-// 动态添加标签
-//tab.addItem({id:2,title:"b",url:"./b.html"});
 // 点击伸缩
 $(".rightContent .header .flexIcon").on("click",function(){
     var $icon = $(this).children(".iconfont"),

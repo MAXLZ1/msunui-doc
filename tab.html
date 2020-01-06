@@ -12,6 +12,9 @@
         .row{
             margin-top:10px;
         }
+        .tab{
+            height: 500px;
+        }
     </style>
 <body>
     <div class="container doc">
@@ -56,6 +59,13 @@
                         <p>{id:'tab1',title:"tab3",url:"tab3.html"}</p>
                     </td>
                     <td>添加标签</td>
+                </tr>
+                <tr>
+                    <td>closeItem</td>
+                    <td>arr:Array
+                        <p>[id,id]</p>
+                    </td>
+                    <td>关闭标签，可关闭一个或多个标签</td>
                 </tr>
                 </tbody>
             </table>
@@ -182,6 +192,10 @@
                 </script>
             </div>
         </code>
+        <div class="row">
+            <button class="btn btn-success" id="add">添加标签</button>
+            <button class="btn btn-success" id="close">关闭id为偶数的标签</button>
+        </div>
         <div class="row">
             <div id="demo" class="tab"></div>
         </div>
@@ -347,14 +361,21 @@
     </div>
 <script type="text/javascript" src="./js/msunui.min.js"></script>
 <script type="text/javascript">
+    var index = 2
     var tab = new Tab({
         elem:"#demo",
         selected:"tab1",
-        loadType:'one',
+        loadType:'more',
         data:[
-            {id:"tab1",title:"首页",url:"tabItemOne.html",close:false},
-            {id:2,title:"标签页2",url:"https://github.com/"}
+            {id:"tab1",title:"首页",url:"",close:false},
+            {id: index,title:"标签页"+index,url:""}
         ]
+    });
+    $('#add').on('click', function() {
+        tab.addItem({id: ++index, title: '标签页'+index, url:''})
+    });
+    $('#close').on('click', function() {
+        tab.closeItem(tab.options.data.filter(item => item.id % 2 === 0).map(item => item.id))
     });
 </script>
 </body>
